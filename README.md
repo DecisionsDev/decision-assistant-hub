@@ -33,82 +33,70 @@ This repository is for:
 Explore real-world scenarios where decision automation helps formalize and operationalize business logic:
 
 ### 👥 HR
-- **[Time Off Policy](examples/hr/time_off_policy/)**  
+- **[Time Off Policy](examples/hr/time_off_policy/policy.md)**  
   Automate leave types, accruals, eligibility, and carryover logic.  
-- **[Performance Bonus Policy](examples/hr/performance_bonus_policy/)**  
+- **[Performance Bonus Policy](examples/hr/performance_bonus_policy/policy.md)**  
   Rules to determine bonus eligibility based on performance tiers and seniority.
 
 ### 💵 Finance
-- **[Expense Approval](examples/finance/expense_approval/)**  
+- **[Expense Approval](examples/finance/expense_approval/policy.md)**  
   Multi-level approval rules and threshold-based routing using a decision table.
 
 ### 🛡 Compliance
-- **[Anti-Money Laundering (AML)](examples/compliance/aml_policy/)**  
+- **[Anti-Money Laundering (AML)](examples/compliance/aml_policy/policy.md)**  
   Transaction pattern rules and risk classification logic.  
-- **[Know Your Customer (KYC)](examples/compliance/kyc_policy/)**  
+- **[Know Your Customer (KYC)](examples/compliance/kyc_policy/policy.md)**  
   Decision logic for onboarding, document verification, and customer risk scoring.
 
 ### 🏗 Operations
-- **[Vendor Risk Scoring](examples/operations/vendor_risk_scoring/)**  
+- **[Vendor Risk Scoring](examples/operations/vendor_risk_scoring/policy.md)**  
   Model for supplier assessment using weighted risk attributes and thresholds.
 
 ---
 
 ## 🚀 Get Started
 
-1. 🔧 Make sure you're set up with the [Decision Assistant](#) (link to main tool or UI).
+1. 🔧 Make sure you're set up with the **Decision Assistant**
 2. 📂 Browse the `examples/` folder by domain to find a scenario similar to yours.
 3. 🧠 Read the `policy.md`, then explore the generated rules (`rules.md`, `.json`, or `.dmn`).
 4. 🎥 Watch demo videos in [`media/videos/`](media/videos/).
 
 ---
 
-## 🧠 Learn by Doing
+<!-- ## 🧠 Learn by Doing
 
 Start with one of these tutorials:
 
 - 📘 [Using the Assistant to Extract Rules](tutorials/01_using_the_assistant.md)
 - 🛠️ [Refining and Editing the Generated Models](tutorials/02_editing_generated_models.md)
 
----
+--- -->
 
-## 💡 Tips & Tricks
-
-- Break large policies into smaller chunks for better results
-- Use bullet points or numbered steps in your input to improve rule extraction
-- Prefer consistent terminology—rephrase ambiguous expressions before submitting
-
-More tips in [`docs/tips_and_tricks.md`](docs/tips_and_tricks.md)
+## [`💡 Practical Guide to writing Policies`](docs/tips_and_tricks.md)
 
 ---
 
 ## ❓ FAQ
 
 **Q:** What formats are supported for policies?  
-**A:** Currently: raw text in the assistant.
+**A:** Currently: Raw text in the assistant.
 
 Full FAQ: [`docs/faq.md`](docs/faq.md)
 
 ---
 
-## 🎥 Media
+<!-- ## 🎥 Media
 
 - 🖥️ [Demo Walkthrough](media/videos/demo_walkthrough.mp4)
 - 📋 [From Policy to Rules – Explained](media/videos/from_policy_to_rules.mp4)
 
----
+--- -->
 
 ## 🤝 Contributing
 
 We welcome contributions!
 
-You can:
-- 📝 Add new policy examples
-- 🎥 Submit video guides
-- 🔧 Improve the tutorials or tips
-- 🌍 Contribute domain-specific rule modeling styles
-
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) for guidelines.
+[`Click Here`](CONTRIBUTING.md) for guidelines.
 
 ---
 
@@ -118,7 +106,7 @@ This project is licensed under the **Apache 2.0**.
 
 ---
 
-## 📬 Contact
+<!-- ## 📬 Contact
 
 Have a use case to showcase?  
-Open an issue or start a [discussion](https://github.com/your-org/decision-assistant-hub/discussions) — we'd love to hear from you!
+Open an issue or start a [discussion](https://github.com/your-org/decision-assistant-hub/discussions) — we'd love to hear from you! -->
