@@ -33,23 +33,23 @@ This repository is for:
 Explore real-world scenarios where decision automation helps formalize and operationalize business logic:
 
 ### 👥 HR
-- **[Time Off Policy](examples/hr/time_off_policy/policy.md)**  
+- **[Time Off](examples/hr/time_off_policy/)**  
   Automate leave types, accruals, eligibility, and carryover logic.  
-- **[Performance Bonus Policy](examples/hr/performance_bonus_policy/policy.md)**  
+- **[Performance Bonus](examples/hr/performance_bonus_policy/)**  
   Rules to determine bonus eligibility based on performance tiers and seniority.
 
 ### 💵 Finance
-- **[Expense Approval](examples/finance/expense_approval/policy.md)**  
+- **[Expense Approval](examples/finance/expense_approval/)**  
   Multi-level approval rules and threshold-based routing using a decision table.
 
 ### 🛡 Compliance
-- **[Anti-Money Laundering (AML)](examples/compliance/aml_policy/policy.md)**  
+- **[Anti-Money Laundering (AML)](examples/compliance/aml_policy/)**  
   Transaction pattern rules and risk classification logic.  
-- **[Know Your Customer (KYC)](examples/compliance/kyc_policy/policy.md)**  
+- **[Know Your Customer (KYC)](examples/compliance/kyc_policy/)**  
   Decision logic for onboarding, document verification, and customer risk scoring.
 
 ### 🏗 Operations
-- **[Vendor Risk Scoring](examples/operations/vendor_risk_scoring/policy.md)**  
+- **[Vendor Risk Scoring](examples/operations/vendor_risk_scoring/)**  
   Model for supplier assessment using weighted risk attributes and thresholds.
 
 ---

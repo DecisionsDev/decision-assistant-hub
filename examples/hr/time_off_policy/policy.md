@@ -1,3 +1,4 @@
+# Acme Corp Time Off Policy
 Acme Corp provides multiple types of time off for employees, including holidays, vacation, and sick leave. Eligibility is typically limited to **regular full-time employees**, unless stated otherwise.
 ## 1. Holidays
 ### Fixed Holidays
@@ -24,10 +25,6 @@ Acme Corp observes **8 fixed paid U.S. holidays** each year for regular full-tim
 ### Usage Conditions
 * Vacation may be taken in **half-day**, **full-day**, or **multi-day** increments.
 * Usage is subject to **manager approval** and must align with **business needs** and **employee preference**.
-## 3. Personal Sick Time (PST)
-### Sick Time Entitlement
-* All regular full-time employees receive a **minimum of 48 hours (6 days)** of paid sick time per year.
-* Sick time is **pro-rated** for employees hired mid-year.
-### Usage Rules
-* Sick time **does not carry over** to the following calendar year, unless **required by applicable law**.
-* **No payout** is provided for unused sick time at any time.
+## 3. Personal Sick Days
+### Sick Day Entitlement
+* All regular full-time employees receive 6 days of paid sick days per year.
