@@ -76,12 +76,7 @@ Start with one of these tutorials:
 
 ---
 
-## ❓ FAQ
-
-**Q:** What formats are supported for policies?  
-**A:** Currently: Raw text in the assistant.
-
-Full FAQ: [`docs/faq.md`](docs/faq.md)
+## ❓ FAQ: [`docs/faq.md`](docs/faq.md)
 
 ---
 
