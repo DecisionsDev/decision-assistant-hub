@@ -1,0 +1,324 @@
+{
+    "api_version": "v1",
+    "kind": "DecisionService",
+    "datamodel": {
+        "classes": [
+            {
+                "name": "TimeOffRequest",
+                "Fields": [
+                    {
+                        "name": "employeeId",
+                        "description": "The ID of the employee requesting time off",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "leaveType",
+                        "description": "The type of leave requested (e.g., vacation, sick leave)",
+                        "collection": false,
+                        "type": "LeaveType"
+                    },
+                    {
+                        "name": "startDate",
+                        "description": "The start date of the requested time off",
+                        "collection": false,
+                        "type": "date"
+                    },
+                    {
+                        "name": "endDate",
+                        "description": "The end date of the requested time off",
+                        "collection": false,
+                        "type": "date"
+                    },
+                    {
+                        "name": "availableBalance",
+                        "description": "The employee's available leave balance",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "employmentStatus",
+                        "description": "The employment status of the employee",
+                        "collection": false,
+                        "type": "EmploymentStatus"
+                    }
+                ],
+                "jsonname": "TimeOffRequest",
+                "description": "Details of the time off request being evaluated"
+            },
+            {
+                "name": "LeaveType",
+                "Fields": [
+                    {
+                        "name": "Vacation",
+                        "description": "Annual vacation leave.",
+                        "collection": false
+                    },
+                    {
+                        "name": "SickLeave",
+                        "description": "Leave due to illness or medical reasons.",
+                        "collection": false
+                    },
+                    {
+                        "name": "FamilyLeave",
+                        "description": "Leave for family-related reasons.",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "LeaveType",
+                "description": "Enumeration of valid leave types."
+            },
+            {
+                "name": "EmploymentStatus",
+                "Fields": [
+                    {
+                        "name": "RegularFullTime",
+                        "description": "Regular full-time employee.",
+                        "collection": false
+                    },
+                    {
+                        "name": "Supplemental",
+                        "description": "Supplemental or part-time employee.",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "EmploymentStatus",
+                "description": "Enumeration of employment statuses."
+            },
+            {
+                "name": "EligibilityCheck",
+                "Fields": [
+                    {
+                        "name": "isEligible",
+                        "description": "Whether the employee is eligible for time off",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for ineligibility, if any",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "EligibilityCheck",
+                "description": "Result of the eligibility check"
+            },
+            {
+                "name": "LeaveBalanceCheck",
+                "Fields": [
+                    {
+                        "name": "hasSufficientBalance",
+                        "description": "Whether the employee has sufficient leave balance",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "balance",
+                        "description": "The current leave balance",
+                        "collection": false,
+                        "type": "int"
+                    }
+                ],
+                "jsonname": "LeaveBalanceCheck",
+                "description": "Result of the leave balance check"
+            },
+            {
+                "name": "ManagerApprovalCheck",
+                "Fields": [
+                    {
+                        "name": "isApprovedByManager",
+                        "description": "Whether the time off request is approved by the manager",
+                        "collection": false,
+                        "type": "boolean"
+                    }
+                ],
+                "jsonname": "ManagerApprovalCheck",
+                "description": "Result of the manager approval check"
+            },
+            {
+                "name": "TimeOffDecision",
+                "Fields": [
+                    {
+                        "name": "isApproved",
+                        "description": "The approval status of the time off request (true if approved, false otherwise)",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for denial, if any",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "TimeOffDecision",
+                "description": "Output parameter indicating the decision on the time off request"
+            }
+        ]
+    },
+    "decisionmodel": {
+        "nodes": [
+            {
+                "name": "TimeOffRequest",
+                "description": "Input parameter containing details of the time off request",
+                "kind": "input",
+                "requirements": [],
+                "type": "TimeOffRequest",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "EligibilityCheck",
+                "description": "Checks if the employee is eligible for time off based on employment status",
+                "kind": "decision",
+                "requirements": [
+                    "TimeOffRequest"
+                ],
+                "type": "EligibilityCheck",
+                "artifacts": [
+                    {
+                        "bal": "if the employmentStatus of TimeOffRequest is one of {RegularFullTime} then set decision to a new EligibilityCheck where isEligible is true, the reason is \"Eligible\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckEligibility",
+                        "description": "if the employmentStatus is RegularFullTime then isEligible is true, the reason is \"Eligible\";"
+                    },
+                    {
+                        "bal": "set decision to a new EligibilityCheck where isEligible is false, the reason is \"Not a regular full-time employee\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "CheckIneligibility",
+                        "description": ""
+                    },
+                    {
+                        "bal": "set decision to a new EligibilityCheck where isEligible is false, the reason is \"Not a regular full-time employee\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DefaultEligibility",
+                        "description": "isEligible is false, the reason is \"Not a regular full-time employee\";"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "LeaveBalanceCheck",
+                "description": "Verifies if the employee has sufficient leave balance",
+                "kind": "decision",
+                "requirements": [
+                    "TimeOffRequest",
+                    "EligibilityCheck"
+                ],
+                "type": "LeaveBalanceCheck",
+                "artifacts": [
+                    {
+                        "bal": "if isEligible is true and the availableBalance of TimeOffRequest is at least 1 then set decision to a new LeaveBalanceCheck where hasSufficientBalance is true, the balance is the availableBalance of TimeOffRequest;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckSufficientBalance",
+                        "description": "if isEligible from EligibilityCheck and the availableBalance is at least 1 then hasSufficientBalance is true, the balance is the availableBalance;"
+                    },
+                    {
+                        "bal": "if isEligible is true and the availableBalance of TimeOffRequest is less than 1 then set decision to a new LeaveBalanceCheck where hasSufficientBalance is false, the balance is the availableBalance of TimeOffRequest;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckInsufficientBalance",
+                        "description": "if isEligible from EligibilityCheck and the availableBalance is less than 1 then hasSufficientBalance is false, the balance is the availableBalance;"
+                    },
+                    {
+                        "bal": "set decision to a new LeaveBalanceCheck where hasSufficientBalance is false, the balance is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultBalanceCheck",
+                        "description": "hasSufficientBalance is false, the balance is 0;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "ManagerApprovalCheck",
+                "description": "Checks if the time off request is approved by the manager",
+                "kind": "decision",
+                "requirements": [
+                    "TimeOffRequest"
+                ],
+                "type": "ManagerApprovalCheck",
+                "artifacts": [
+                    {
+                        "bal": "if the leaveType of TimeOffRequest is one of {Vacation} then set decision to a new ManagerApprovalCheck where isApprovedByManager is true;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckManagerApproval",
+                        "description": "if the leaveType is Vacation then isApprovedByManager is true;"
+                    },
+                    {
+                        "bal": "set decision to a new ManagerApprovalCheck where isApprovedByManager is false;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultManagerApproval",
+                        "description": "isApprovedByManager is false;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "TimeOffDecision",
+                "description": "Output parameter containing the decision on the time off request",
+                "kind": "decision",
+                "requirements": [
+                    "EligibilityCheck",
+                    "LeaveBalanceCheck",
+                    "ManagerApprovalCheck"
+                ],
+                "type": "TimeOffDecision",
+                "artifacts": [
+                    {
+                        "bal": "if isEligible is true and hasSufficientBalance is true and isApprovedByManager is true then set decision to a new TimeOffDecision where isApproved is true, the reason is \"Approved\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ApproveTimeOff",
+                        "description": "if isEligible from EligibilityCheck and hasSufficientBalance from LeaveBalanceCheck and isApprovedByManager from ManagerApprovalCheck then isApproved is true, the reason is \"Approved\";"
+                    },
+                    {
+                        "bal": "if isEligible is true and hasSufficientBalance is false then set decision to a new TimeOffDecision where isApproved is false, the reason is \"Insufficient leave balance\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DenyTimeOffInsufficientBalance",
+                        "description": "if isEligible from EligibilityCheck and not (hasSufficientBalance from LeaveBalanceCheck) then isApproved is false, the reason is \"Insufficient leave balance\";"
+                    },
+                    {
+                        "bal": "if isEligible is false then set decision to a new TimeOffDecision where isApproved is false, the reason is \"Not eligible for time off\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DenyTimeOffNotEligible",
+                        "description": "if not (isEligible from EligibilityCheck) then isApproved is false, the reason is \"Not eligible for time off\";"
+                    },
+                    {
+                        "bal": "if isEligible is true and hasSufficientBalance is true and isApprovedByManager is false then set decision to a new TimeOffDecision where isApproved is false, the reason is \"Manager did not approve\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DenyTimeOffManagerDisapproval",
+                        "description": "if isEligible from EligibilityCheck and hasSufficientBalance from LeaveBalanceCheck and not (isApprovedByManager from ManagerApprovalCheck) then isApproved is false, the reason is \"Manager did not approve\";"
+                    },
+                    {
+                        "bal": "set decision to a new TimeOffDecision where isApproved is false, the reason is \"Unknown reason\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultTimeOffDecision",
+                        "description": "isApproved is false, the reason is \"Unknown reason\";"
+                    }
+                ],
+                "policy": "first"
+            }
+        ]
+    },
+    "metadata": {
+        "name": "TimeOffApproval",
+        "type": "model",
+        "description": "A decision service to determine if an employee's time off request is approved based on various factors such as leave type, available balance, and manager approval.",
+        "summary": "Evaluates time off requests for approval based on leave type and other factors.",
+        "display_name": "Time Off Approval Service",
+        "locale": "en-US",
+        "publisher": "HR Department"
+    }
+}
