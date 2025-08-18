@@ -1,0 +1,371 @@
+{
+    "api_version": "v1",
+    "kind": "DecisionService",
+    "datamodel": {
+        "classes": [
+            {
+                "name": "Customer",
+                "Fields": [
+                    {
+                        "name": "id",
+                        "description": "Unique identifier for the customer",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "name",
+                        "description": "Name of the customer",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "address",
+                        "description": "Address of the customer",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "riskScore",
+                        "description": "Customer's risk score based on historical data",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "isHighRiskIndustry",
+                        "description": "Whether the customer is in a high-risk industry",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "kycStatus",
+                        "description": "Know Your Customer (KYC) status",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "Customer",
+                "description": "Customer details for risk assessment"
+            },
+            {
+                "name": "Transaction",
+                "Fields": [
+                    {
+                        "name": "id",
+                        "description": "Unique identifier for the transaction",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "customerId",
+                        "description": "Identifier of the customer performing the transaction",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "amount",
+                        "description": "Amount of the transaction",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "currency",
+                        "description": "Currency of the transaction",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "type",
+                        "description": "Type of transaction",
+                        "collection": false,
+                        "type": "TransactionType"
+                    },
+                    {
+                        "name": "timestamp",
+                        "description": "Timestamp of the transaction",
+                        "collection": false,
+                        "type": "datetime"
+                    }
+                ],
+                "jsonname": "Transaction",
+                "description": "Transaction details for risk assessment"
+            },
+            {
+                "name": "TransactionType",
+                "Fields": [
+                    {
+                        "name": "Deposit",
+                        "description": "Deposit transaction",
+                        "collection": false
+                    },
+                    {
+                        "name": "Withdrawal",
+                        "description": "Withdrawal transaction",
+                        "collection": false
+                    },
+                    {
+                        "name": "Transfer",
+                        "description": "Transfer transaction",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "TransactionType",
+                "description": "Enumeration of transaction types"
+            },
+            {
+                "name": "RiskAssessment",
+                "Fields": [
+                    {
+                        "name": "riskLevel",
+                        "description": "Level of risk associated with the transaction",
+                        "collection": false,
+                        "type": "RiskLevel"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for the risk assessment outcome",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "RiskAssessment",
+                "description": "Result of the risk assessment"
+            },
+            {
+                "name": "RiskLevel",
+                "Fields": [
+                    {
+                        "name": "Low",
+                        "description": "Low risk of money laundering",
+                        "collection": false
+                    },
+                    {
+                        "name": "Medium",
+                        "description": "Medium risk of money laundering",
+                        "collection": false
+                    },
+                    {
+                        "name": "High",
+                        "description": "High risk of money laundering",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "RiskLevel",
+                "description": "Enumeration of risk levels"
+            },
+            {
+                "name": "TransactionRiskEvaluation",
+                "Fields": [
+                    {
+                        "name": "isLargeTransaction",
+                        "description": "Whether the transaction amount exceeds the threshold",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "isUnusualPattern",
+                        "description": "Whether the transaction pattern is unusual",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "isGeographicRisk",
+                        "description": "Whether the transaction involves high-risk geography",
+                        "collection": false,
+                        "type": "boolean"
+                    }
+                ],
+                "jsonname": "TransactionRiskEvaluation",
+                "description": "Transaction risk evaluation result"
+            },
+            {
+                "name": "CustomerRiskClassification",
+                "Fields": [
+                    {
+                        "name": "riskLevel",
+                        "description": "Customer risk level",
+                        "collection": false,
+                        "type": "RiskLevel"
+                    },
+                    {
+                        "name": "classificationReason",
+                        "description": "Reason for customer risk classification",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "CustomerRiskClassification",
+                "description": "Customer risk classification result"
+            },
+            {
+                "name": "TransactionMonitoring",
+                "Fields": [
+                    {
+                        "name": "isFlagged",
+                        "description": "Whether the transaction is flagged for review",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "flagReason",
+                        "description": "Reason for flagging the transaction",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "TransactionMonitoring",
+                "description": "Transaction monitoring result"
+            }
+        ]
+    },
+    "decisionmodel": {
+        "nodes": [
+            {
+                "name": "Customer",
+                "description": "Input parameter containing customer details",
+                "kind": "input",
+                "requirements": [],
+                "type": "Customer",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "Transaction",
+                "description": "Input parameter containing transaction details",
+                "kind": "input",
+                "requirements": [],
+                "type": "Transaction",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "TransactionRiskEvaluation",
+                "description": "Evaluates transaction risk based on amount, pattern, and geography",
+                "kind": "decision",
+                "requirements": [
+                    "Transaction"
+                ],
+                "type": "TransactionRiskEvaluation",
+                "artifacts": [
+                    {
+                        "bal": "if the amount of Transaction is more than 10000 then set decision to a new TransactionRiskEvaluation where isLargeTransaction is true, isUnusualPattern is false, isGeographicRisk is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckLargeTransaction",
+                        "description": "if the amount is more than 10000 then isLargeTransaction is true, isUnusualPattern is false, isGeographicRisk is false;"
+                    },
+                    {
+                        "bal": "if the amount of Transaction is between 2900 and 3100 or the amount of Transaction is between 9900 and 10100 then set decision to a new TransactionRiskEvaluation where isUnusualPattern is true, isLargeTransaction is false, isGeographicRisk is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckUnusualPattern",
+                        "description": "if the amount is between 2900 and 3100 or the amount is between 9900 and 10100 then isUnusualPattern is true, isLargeTransaction is false, isGeographicRisk is false;"
+                    },
+                    {
+                        "bal": "if the currency of Transaction is \"HighRiskCurrency\" then set decision to a new TransactionRiskEvaluation where isGeographicRisk is true, isLargeTransaction is false, isUnusualPattern is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckGeographicRisk",
+                        "description": "if the currency is \"HighRiskCurrency\" then isGeographicRisk is true, isLargeTransaction is false, isUnusualPattern is false;"
+                    },
+                    {
+                        "bal": "set decision to a new TransactionRiskEvaluation where isLargeTransaction is false, isUnusualPattern is false, isGeographicRisk is false;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultTransactionRisk",
+                        "description": "isLargeTransaction is false, isUnusualPattern is false, isGeographicRisk is false;"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "CustomerRiskClassification",
+                "description": "Classifies customer risk level based on their details and transaction history",
+                "kind": "decision",
+                "requirements": [
+                    "Customer",
+                    "Transaction"
+                ],
+                "type": "CustomerRiskClassification",
+                "artifacts": [
+                    {
+                        "bal": "if the riskScore of Customer is more than 50 or the type of Transaction is \"Transfer\" then set decision to a new CustomerRiskClassification where the riskLevel is \"Elevated\", the classificationReason is \"High risk score or transfer type transaction\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ClassifyCustomerRisk",
+                        "description": "if the riskScore from Customer is more than 50 or the type from Transaction is \"Transfer\" then the riskLevel is \"Elevated\", the classificationReason is \"High risk score or transfer type transaction\";"
+                    },
+                    {
+                        "bal": "set decision to a new CustomerRiskClassification where the riskLevel is \"Standard\", the classificationReason is \"Standard risk\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultCustomerRisk",
+                        "description": "the riskLevel is \"Standard\", the classificationReason is \"Standard risk\";"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "TransactionMonitoring",
+                "description": "Determines if transaction should be flagged for review",
+                "kind": "decision",
+                "requirements": [
+                    "TransactionRiskEvaluation",
+                    "CustomerRiskClassification"
+                ],
+                "type": "TransactionMonitoring",
+                "artifacts": [
+                    {
+                        "bal": "if isLargeTransaction is true or isUnusualPattern is true or isGeographicRisk is true then set decision to a new TransactionMonitoring where isFlagged is true, the flagReason is \"Transaction risk evaluation flagged\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "FlagTransactionForReview",
+                        "description": "if isLargeTransaction from TransactionRiskEvaluation or isUnusualPattern from TransactionRiskEvaluation or isGeographicRisk from TransactionRiskEvaluation then isFlagged is true, the flagReason is \"Transaction risk evaluation flagged\";"
+                    },
+                    {
+                        "bal": "if isLargeTransaction is false and isUnusualPattern is false and isGeographicRisk is false then set decision to a new TransactionMonitoring where isFlagged is false, the flagReason is \"No risk factors identified\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DoNotFlagTransaction",
+                        "description": "if not(isLargeTransaction from TransactionRiskEvaluation or isUnusualPattern from TransactionRiskEvaluation or isGeographicRisk from TransactionRiskEvaluation) then isFlagged is false, the flagReason is \"No risk factors identified\";"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "RiskAssessment",
+                "description": "Output parameter containing the risk assessment result",
+                "kind": "decision",
+                "requirements": [
+                    "TransactionMonitoring"
+                ],
+                "type": "RiskAssessment",
+                "artifacts": [
+                    {
+                        "bal": "if isFlagged is true then set decision to a new RiskAssessment where the riskLevel is \"High\", the reason is \"Transaction flagged for review\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "AssessRiskLevel",
+                        "description": "if isFlagged from TransactionMonitoring then the riskLevel is \"High\", the reason is \"Transaction flagged for review\";"
+                    },
+                    {
+                        "bal": "set decision to a new RiskAssessment where the riskLevel is \"Low\", the reason is \"No risk factors identified\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultRiskAssessment",
+                        "description": "the riskLevel is \"Low\", the reason is \"No risk factors identified\";"
+                    }
+                ],
+                "policy": "sequence"
+            }
+        ]
+    },
+    "metadata": {
+        "name": "AntiMoneyLaundering",
+        "type": "model",
+        "description": "A decision service to assess the risk of money laundering based on customer and transaction data.",
+        "summary": "Evaluates the risk of money laundering for financial transactions.",
+        "display_name": "Anti-Money Laundering Decision Service",
+        "locale": "en-US",
+        "publisher": "Financial Institution"
+    }
+}
