@@ -1,0 +1,453 @@
+{
+    "api_version": "v1",
+    "kind": "DecisionService",
+    "datamodel": {
+        "classes": [
+            {
+                "name": "Expense",
+                "Fields": [
+                    {
+                        "name": "amount",
+                        "description": "The amount of the expense",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "category",
+                        "description": "The category of the expense (e.g., travel, food, lodging)",
+                        "collection": false,
+                        "type": "ExpenseCategory"
+                    },
+                    {
+                        "name": "transactionDate",
+                        "description": "The date when the expense was incurred",
+                        "collection": false,
+                        "type": "date"
+                    },
+                    {
+                        "name": "submissionDate",
+                        "description": "The date when the expense was submitted",
+                        "collection": false,
+                        "type": "date"
+                    },
+                    {
+                        "name": "supportingDocumentation",
+                        "description": "Whether supporting documentation is provided",
+                        "collection": false,
+                        "type": "boolean"
+                    }
+                ],
+                "jsonname": "Expense",
+                "description": "Details of the expense being evaluated"
+            },
+            {
+                "name": "ExpenseCategory",
+                "Fields": [
+                    {
+                        "name": "Travel",
+                        "description": "Expenses related to travel",
+                        "collection": false
+                    },
+                    {
+                        "name": "Food",
+                        "description": "Expenses related to food",
+                        "collection": false
+                    },
+                    {
+                        "name": "Lodging",
+                        "description": "Expenses related to lodging",
+                        "collection": false
+                    },
+                    {
+                        "name": "BusinessEquipment",
+                        "description": "Expenses related to business equipment",
+                        "collection": false
+                    },
+                    {
+                        "name": "ProfessionalDevelopment",
+                        "description": "Expenses related to professional development",
+                        "collection": false
+                    },
+                    {
+                        "name": "Miscellaneous",
+                        "description": "Other miscellaneous expenses",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "ExpenseCategory",
+                "description": "Enumeration of valid expense categories"
+            },
+            {
+                "name": "Employee",
+                "Fields": [
+                    {
+                        "name": "level",
+                        "description": "The level of the employee (e.g., Individual Contributor, Manager, Director)",
+                        "collection": false,
+                        "type": "EmployeeLevel"
+                    },
+                    {
+                        "name": "type",
+                        "description": "The type of the employee (e.g., regular full-time, supplemental)",
+                        "collection": false,
+                        "type": "EmployeeType"
+                    }
+                ],
+                "jsonname": "Employee",
+                "description": "Details of the employee submitting the expense"
+            },
+            {
+                "name": "EmployeeLevel",
+                "Fields": [
+                    {
+                        "name": "IndividualContributor",
+                        "description": "Individual contributor level",
+                        "collection": false
+                    },
+                    {
+                        "name": "Manager",
+                        "description": "Manager level",
+                        "collection": false
+                    },
+                    {
+                        "name": "Director",
+                        "description": "Director level",
+                        "collection": false
+                    },
+                    {
+                        "name": "AboveDirector",
+                        "description": "Above director level",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "EmployeeLevel",
+                "description": "Enumeration of employee levels"
+            },
+            {
+                "name": "EmployeeType",
+                "Fields": [
+                    {
+                        "name": "RegularFullTime",
+                        "description": "Regular full-time employee",
+                        "collection": false
+                    },
+                    {
+                        "name": "Supplemental",
+                        "description": "Supplemental employee",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "EmployeeType",
+                "description": "Enumeration of employee types"
+            },
+            {
+                "name": "ApprovalLimit",
+                "Fields": [
+                    {
+                        "name": "limitAmount",
+                        "description": "The approval limit amount",
+                        "collection": false,
+                        "type": "number"
+                    }
+                ],
+                "jsonname": "ApprovalLimit",
+                "description": "Approval limit based on employee level"
+            },
+            {
+                "name": "CategoryEligibility",
+                "Fields": [
+                    {
+                        "name": "isEligible",
+                        "description": "Whether the category is eligible for the employee type",
+                        "collection": false,
+                        "type": "boolean"
+                    }
+                ],
+                "jsonname": "CategoryEligibility",
+                "description": "Eligibility of the expense category for the employee type"
+            },
+            {
+                "name": "SpecialApprovalRequirements",
+                "Fields": [
+                    {
+                        "name": "requiresFinanceReview",
+                        "description": "Whether the expense requires finance review",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "requiresPreApproval",
+                        "description": "Whether the expense requires pre-approval",
+                        "collection": false,
+                        "type": "boolean"
+                    }
+                ],
+                "jsonname": "SpecialApprovalRequirements",
+                "description": "Special approval requirements check result"
+            },
+            {
+                "name": "ExpenseEligibility",
+                "Fields": [
+                    {
+                        "name": "isEligible",
+                        "description": "Whether the expense is eligible",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for ineligibility, if any",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "ExpenseEligibility",
+                "description": "Expense eligibility check result"
+            },
+            {
+                "name": "ApprovalDecision",
+                "Fields": [
+                    {
+                        "name": "isApproved",
+                        "description": "The approval status of the expense (true if approved, false otherwise)",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for approval or rejection",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "ApprovalDecision",
+                "description": "Output containing the approval status and reason"
+            }
+        ]
+    },
+    "decisionmodel": {
+        "nodes": [
+            {
+                "name": "Expense",
+                "description": "Input containing expense details",
+                "kind": "input",
+                "requirements": [],
+                "type": "Expense",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "Employee",
+                "description": "Input containing employee details",
+                "kind": "input",
+                "requirements": [],
+                "type": "Employee",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "ApprovalLimit",
+                "description": "Determines the approval limit based on employee level",
+                "kind": "decision",
+                "requirements": [
+                    "Employee"
+                ],
+                "type": "ApprovalLimit",
+                "artifacts": [
+                    {
+                        "bal": "if the level of Employee is IndividualContributor then set decision to a new ApprovalLimit where the limitAmount is 1000;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "IndividualContributorLimit",
+                        "description": "if the level from Employee is IndividualContributor then the limitAmount is 1000;"
+                    },
+                    {
+                        "bal": "if the level of Employee is Manager then set decision to a new ApprovalLimit where the limitAmount is 5000;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ManagerLimit",
+                        "description": "if the level from Employee is Manager then the limitAmount is 5000;"
+                    },
+                    {
+                        "bal": "if the level of Employee is Director or the level of Employee is AboveDirector then set decision to a new ApprovalLimit where the limitAmount is 10000;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DirectorLimit",
+                        "description": "if the level from Employee is Director or the level from Employee is AboveDirector then the limitAmount is 10000;"
+                    },
+                    {
+                        "bal": "set decision to a new ApprovalLimit where the limitAmount is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultLimit",
+                        "description": "the limitAmount is 0;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "CategoryEligibility",
+                "description": "Checks if the expense category is eligible for the employee type",
+                "kind": "decision",
+                "requirements": [
+                    "Expense",
+                    "Employee"
+                ],
+                "type": "CategoryEligibility",
+                "artifacts": [
+                    {
+                        "bal": "if the type of Employee is RegularFullTime then set decision to a new CategoryEligibility where isEligible is true;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "RegularFullTimeEligible",
+                        "description": "if the type from Employee is RegularFullTime then isEligible is true;"
+                    },
+                    {
+                        "bal": "if the type of Employee is Supplemental and the category of Expense is BusinessEquipment then set decision to a new CategoryEligibility where isEligible is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "SupplementalIneligible",
+                        "description": "if the type from Employee is Supplemental and the category from Expense is BusinessEquipment then isEligible is false;"
+                    },
+                    {
+                        "bal": "set decision to a new CategoryEligibility where isEligible is true;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultEligibility",
+                        "description": "isEligible is true;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "SpecialApprovalRequirements",
+                "description": "Checks for special approval requirements such as finance review or pre-approval",
+                "kind": "decision",
+                "requirements": [
+                    "Expense",
+                    "Employee"
+                ],
+                "type": "SpecialApprovalRequirements",
+                "artifacts": [
+                    {
+                        "bal": "if the amount of Expense is more than 10000 then set decision to a new SpecialApprovalRequirements where requiresFinanceReview is true, requiresPreApproval is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "HighValueFinanceReview",
+                        "description": "if the amount is more than 10000 then requiresFinanceReview is true, requiresPreApproval is false;"
+                    },
+                    {
+                        "bal": "if the category of Expense is Travel and the transactionDate of Expense is not null and the submissionDate of Expense is not null and the number of days between the transactionDate of Expense and the submissionDate of Expense is more than 30 then set decision to a new SpecialApprovalRequirements where requiresPreApproval is true, requiresFinanceReview is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "InternationalTravelPreApproval",
+                        "description": "if the category from Expense is Travel and the transactionDate is not null and the submissionDate is not null and the submissionDate - the transactionDate > 30 then requiresPreApproval is true, requiresFinanceReview is false;"
+                    },
+                    {
+                        "bal": "if the category of Expense is Food and the amount of Expense is more than 50 then set decision to a new SpecialApprovalRequirements where requiresFinanceReview is true, requiresPreApproval is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "AlcoholExpenseCheck",
+                        "description": "if the category from Expense is Food and the amount is more than 50 then requiresFinanceReview is true, requiresPreApproval is false;"
+                    },
+                    {
+                        "bal": "set decision to a new SpecialApprovalRequirements where requiresFinanceReview is false, requiresPreApproval is false;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultSpecialRequirements",
+                        "description": "requiresFinanceReview is false, requiresPreApproval is false;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "ExpenseEligibility",
+                "description": "Evaluates overall expense eligibility based on category, amount, and employee details",
+                "kind": "decision",
+                "requirements": [
+                    "Expense",
+                    "Employee",
+                    "CategoryEligibility",
+                    "SpecialApprovalRequirements"
+                ],
+                "type": "ExpenseEligibility",
+                "artifacts": [
+                    {
+                        "bal": "if isEligible is true and requiresFinanceReview is false and requiresPreApproval is false and supportingDocumentation is true then set decision to a new ExpenseEligibility where isEligible is true, the reason is \"Eligible\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "EligibleExpense",
+                        "description": "if isEligible from CategoryEligibility and not (requiresFinanceReview from SpecialApprovalRequirements or requiresPreApproval from SpecialApprovalRequirements) and the supportingDocumentation is true then isEligible is true, the reason is \"Eligible\";"
+                    },
+                    {
+                        "bal": "if isEligible is false then set decision to a new ExpenseEligibility where isEligible is false, the reason is \"Category not eligible\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "IneligibleExpense",
+                        "description": "if not (isEligible from CategoryEligibility) then isEligible is false, the reason is \"Category not eligible\";"
+                    },
+                    {
+                        "bal": "if supportingDocumentation is false then set decision to a new ExpenseEligibility where isEligible is false, the reason is \"Missing supporting documentation\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "MissingDocumentation",
+                        "description": "if not (the supportingDocumentation) then isEligible is false, the reason is \"Missing supporting documentation\";"
+                    },
+                    {
+                        "bal": "set decision to a new ExpenseEligibility where isEligible is false, the reason is \"Not eligible by default\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultExpenseEligibility",
+                        "description": "isEligible is false, the reason is \"Not eligible by default\";"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "ApprovalDecision",
+                "description": "Output containing the approval decision",
+                "kind": "decision",
+                "requirements": [
+                    "Expense",
+                    "Employee",
+                    "ApprovalLimit",
+                    "ExpenseEligibility"
+                ],
+                "type": "ApprovalDecision",
+                "artifacts": [
+                    {
+                        "bal": "if isEligible is true and the amount of Expense is at most the limitAmount of ApprovalLimit then set decision to a new ApprovalDecision where isApproved is true, the reason is \"Approved within limit\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ApprovedExpense",
+                        "description": "if isEligible from ExpenseEligibility and the amount is at most the limitAmount from ApprovalLimit then isApproved is true, the reason is \"Approved within limit\";"
+                    },
+                    {
+                        "bal": "if isEligible is true and the amount of Expense is more than the limitAmount of ApprovalLimit then set decision to a new ApprovalDecision where isApproved is false, the reason is \"Exceeds approval limit\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ExceededLimit",
+                        "description": "if isEligible from ExpenseEligibility and the amount is more than the limitAmount from ApprovalLimit then isApproved is false, the reason is \"Exceeds approval limit\";"
+                    },
+                    {
+                        "bal": "set decision to a new ApprovalDecision where isApproved is false, the reason is \"Not approved by default\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultApprovalDecision",
+                        "description": "isApproved is false, the reason is \"Not approved by default\";"
+                    }
+                ],
+                "policy": "first"
+            }
+        ]
+    },
+    "metadata": {
+        "name": "ExpenseApproval",
+        "type": "model",
+        "description": "A decision service to determine the approval status of an expense based on its amount, category, and employee details.",
+        "summary": "Evaluates expense approval based on amount, category, and employee details.",
+        "display_name": "Expense Approval Service",
+        "locale": "en-US",
+        "publisher": "Finance Department"
+    }
+}
