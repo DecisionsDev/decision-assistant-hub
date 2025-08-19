@@ -1,0 +1,341 @@
+{
+    "api_version": "1",
+    "kind": "DecisionService",
+    "datamodel": {
+        "classes": [
+            {
+                "name": "RiskAssessment",
+                "Fields": [
+                    {
+                        "name": "operationalDependency",
+                        "description": "Score for operational dependency",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "dataSensitivity",
+                        "description": "Score for data sensitivity",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "cybersecurityMaturity",
+                        "description": "Score for cybersecurity maturity",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "financialHealth",
+                        "description": "Score for financial health",
+                        "collection": false,
+                        "type": "int"
+                    }
+                ],
+                "jsonname": "RiskAssessment",
+                "description": "Risk assessment details of the vendor"
+            },
+            {
+                "name": "RiskLevel",
+                "Fields": [
+                    {
+                        "name": "Low",
+                        "description": "Low risk level",
+                        "collection": false
+                    },
+                    {
+                        "name": "Moderate",
+                        "description": "Moderate risk level",
+                        "collection": false
+                    },
+                    {
+                        "name": "High",
+                        "description": "High risk level",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "RiskLevel",
+                "description": "Enumeration of risk levels"
+            },
+            {
+                "name": "VendorRiskScore",
+                "Fields": [
+                    {
+                        "name": "score",
+                        "description": "The calculated risk score",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "riskLevel",
+                        "description": "The overall risk level based on the score",
+                        "collection": false,
+                        "type": "RiskLevel"
+                    },
+                    {
+                        "name": "recommendation",
+                        "description": "Recommendation based on the risk score",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "VendorRiskScore",
+                "description": "Calculated risk score of the vendor"
+            },
+            {
+                "name": "WeightedScoreCalculation",
+                "Fields": [
+                    {
+                        "name": "operationalDependencyWeightedScore",
+                        "description": "Weighted score for operational dependency",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "dataSensitivityWeightedScore",
+                        "description": "Weighted score for data sensitivity",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "cybersecurityMaturityWeightedScore",
+                        "description": "Weighted score for cybersecurity maturity",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "financialHealthWeightedScore",
+                        "description": "Weighted score for financial health",
+                        "collection": false,
+                        "type": "number"
+                    }
+                ],
+                "jsonname": "WeightedScoreCalculation",
+                "description": "Weighted score calculation results"
+            },
+            {
+                "name": "RiskScoreCalculation",
+                "Fields": [
+                    {
+                        "name": "totalWeightedScore",
+                        "description": "Total weighted score",
+                        "collection": false,
+                        "type": "number"
+                    }
+                ],
+                "jsonname": "RiskScoreCalculation",
+                "description": "Risk score calculation results"
+            },
+            {
+                "name": "RiskLevelDetermination",
+                "Fields": [
+                    {
+                        "name": "riskLevel",
+                        "description": "Risk level based on the final score",
+                        "collection": false,
+                        "type": "RiskLevel"
+                    },
+                    {
+                        "name": "hasHighRiskAttribute",
+                        "description": "Whether any attribute is scored 5",
+                        "collection": false,
+                        "type": "boolean"
+                    }
+                ],
+                "jsonname": "RiskLevelDetermination",
+                "description": "Risk level determination results"
+            }
+        ]
+    },
+    "decisionmodel": {
+        "nodes": [
+            {
+                "name": "VendorInformation",
+                "description": "Input containing details about the vendor",
+                "kind": "input",
+                "requirements": [],
+                "type": "VendorInformation",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "RiskAssessment",
+                "description": "Input containing risk assessment details of the vendor",
+                "kind": "input",
+                "requirements": [],
+                "type": "RiskAssessment",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "WeightedScoreCalculation",
+                "description": "Calculates weighted scores for each risk attribute",
+                "kind": "decision",
+                "requirements": [
+                    "RiskAssessment"
+                ],
+                "type": "WeightedScoreCalculation",
+                "artifacts": [
+                    {
+                        "bal": "if the operationalDependency of RiskAssessment is more than 0 then set decision to a new WeightedScoreCalculation where the operationalDependencyWeightedScore is (the operationalDependency of RiskAssessment * 0.3);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateOperationalDependencyWeightedScore",
+                        "description": "if the operationalDependency is more than 0 then the operationalDependencyWeightedScore is the operationalDependency * 0.3;"
+                    },
+                    {
+                        "bal": "if the dataSensitivity of RiskAssessment is more than 0 then set decision to a new WeightedScoreCalculation where the dataSensitivityWeightedScore is (the dataSensitivity of RiskAssessment * 0.3);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateDataSensitivityWeightedScore",
+                        "description": "if the dataSensitivity is more than 0 then the dataSensitivityWeightedScore is the dataSensitivity * 0.3;"
+                    },
+                    {
+                        "bal": "if the cybersecurityMaturity of RiskAssessment is more than 0 then set decision to a new WeightedScoreCalculation where the cybersecurityMaturityWeightedScore is (the cybersecurityMaturity of RiskAssessment * 0.25);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateCybersecurityMaturityWeightedScore",
+                        "description": "if the cybersecurityMaturity is more than 0 then the cybersecurityMaturityWeightedScore is the cybersecurityMaturity * 0.25;"
+                    },
+                    {
+                        "bal": "if the financialHealth of RiskAssessment is more than 0 then set decision to a new WeightedScoreCalculation where the financialHealthWeightedScore is (the financialHealth of RiskAssessment * 0.15);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateFinancialHealthWeightedScore",
+                        "description": "if the financialHealth is more than 0 then the financialHealthWeightedScore is the financialHealth * 0.15;"
+                    },
+                    {
+                        "bal": "set decision to a new WeightedScoreCalculation where the operationalDependencyWeightedScore is 0, the dataSensitivityWeightedScore is 0, the cybersecurityMaturityWeightedScore is 0, the financialHealthWeightedScore is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultWeightedScore",
+                        "description": "the operationalDependencyWeightedScore is 0, the dataSensitivityWeightedScore is 0, the cybersecurityMaturityWeightedScore is 0, the financialHealthWeightedScore is 0;"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "RiskScoreCalculation",
+                "description": "Calculates the total risk score",
+                "kind": "decision",
+                "requirements": [
+                    "WeightedScoreCalculation"
+                ],
+                "type": "RiskScoreCalculation",
+                "artifacts": [
+                    {
+                        "bal": "if the operationalDependencyWeightedScore of WeightedScoreCalculation is at least 0 and the dataSensitivityWeightedScore of WeightedScoreCalculation is at least 0 and the cybersecurityMaturityWeightedScore of WeightedScoreCalculation is at least 0 and the financialHealthWeightedScore of WeightedScoreCalculation is at least 0 then set decision to a new RiskScoreCalculation where the totalWeightedScore is (the operationalDependencyWeightedScore of WeightedScoreCalculation + the dataSensitivityWeightedScore of WeightedScoreCalculation + the cybersecurityMaturityWeightedScore of WeightedScoreCalculation + the financialHealthWeightedScore of WeightedScoreCalculation);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateTotalWeightedScore",
+                        "description": "if the operationalDependencyWeightedScore from WeightedScoreCalculation is more than or equal to 0 and the dataSensitivityWeightedScore from WeightedScoreCalculation is more than or equal to 0 and the cybersecurityMaturityWeightedScore from WeightedScoreCalculation is more than or equal to 0 and the financialHealthWeightedScore from WeightedScoreCalculation is more than or equal to 0 then the totalWeightedScore is the operationalDependencyWeightedScore from WeightedScoreCalculation + the dataSensitivityWeightedScore from WeightedScoreCalculation + the cybersecurityMaturityWeightedScore from WeightedScoreCalculation + the financialHealthWeightedScore from WeightedScoreCalculation;"
+                    },
+                    {
+                        "bal": "set decision to a new RiskScoreCalculation where the totalWeightedScore is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultTotalWeightedScore",
+                        "description": "the totalWeightedScore is 0;"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "RiskLevelDetermination",
+                "description": "Determines the risk level based on the risk score",
+                "kind": "decision",
+                "requirements": [
+                    "RiskScoreCalculation",
+                    "RiskAssessment"
+                ],
+                "type": "RiskLevelDetermination",
+                "artifacts": [
+                    {
+                        "bal": "if the operationalDependency of RiskAssessment is 5 or the dataSensitivity of RiskAssessment is 5 or the cybersecurityMaturity of RiskAssessment is 5 or the financialHealth of RiskAssessment is 5 then set decision to a new RiskLevelDetermination where the riskLevel is High, hasHighRiskAttribute is true;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckHighRiskAttribute",
+                        "description": "if the operationalDependency is 5 or the dataSensitivity is 5 or the cybersecurityMaturity is 5 or the financialHealth is 5 then riskLevel is High, hasHighRiskAttribute is true;"
+                    },
+                    {
+                        "bal": "if the totalWeightedScore of RiskScoreCalculation is at most 2.4 then set decision to a new RiskLevelDetermination where riskLevel is Low, hasHighRiskAttribute is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DetermineRiskLevelBasedOnScore",
+                        "description": "if the totalWeightedScore from RiskScoreCalculation is at most 2.4 then the riskLevel is Low, hasHighRiskAttribute is false;"
+                    },
+                    {
+                        "bal": "if the totalWeightedScore of RiskScoreCalculation is more than 2.4 and the totalWeightedScore of RiskScoreCalculation is at most 3.4 then set decision to a new RiskLevelDetermination where the riskLevel is Moderate, hasHighRiskAttribute is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DetermineModerateRiskLevel",
+                        "description": "if the totalWeightedScore from RiskScoreCalculation is more than 2.4 and the totalWeightedScore from RiskScoreCalculation is at most 3.4 then the riskLevel is Moderate, hasHighRiskAttribute is false;"
+                    },
+                    {
+                        "bal": "if the totalWeightedScore of RiskScoreCalculation is more than 3.4 then set decision to a new RiskLevelDetermination where the riskLevel is High, hasHighRiskAttribute is false;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DetermineHighRiskLevel",
+                        "description": "if the totalWeightedScore from RiskScoreCalculation is more than 3.4 then riskLevel is High, hasHighRiskAttribute is false;"
+                    },
+                    {
+                        "bal": "set decision to a new RiskLevelDetermination where the riskLevel is Low, hasHighRiskAttribute is false;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultRiskLevel",
+                        "description": "riskLevel is Low, hasHighRiskAttribute is false;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "VendorRiskScore",
+                "description": "Output parameter containing the calculated risk score of the vendor",
+                "kind": "decision",
+                "requirements": [
+                    "RiskLevelDetermination"
+                ],
+                "type": "VendorRiskScore",
+                "artifacts": [
+                    {
+                        "bal": "if the riskLevel of RiskLevelDetermination is Low then set decision to a new VendorRiskScore where the score is 2.0, the riskLevel is Low, the recommendation is \"Annual review\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateRiskScoreAndLevel",
+                        "description": "if riskLevel from RiskLevelDetermination is Low then the score is 2.0, riskLevel is Low, the recommendation is \"Annual review\";"
+                    },
+                    {
+                        "bal": "if the riskLevel of RiskLevelDetermination is Moderate then set decision to a new VendorRiskScore where the score is 3.0, the riskLevel is Moderate, the recommendation is \"Review every 6 months\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateModerateRiskScoreAndLevel",
+                        "description": "if riskLevel from RiskLevelDetermination is Moderate then the score is 3.0, riskLevel is Moderate, the recommendation is \"Review every 6 months\";"
+                    },
+                    {
+                        "bal": "if the riskLevel of RiskLevelDetermination is High then set decision to a new VendorRiskScore where the score is 4.0, the riskLevel is High, the recommendation is \"Quarterly review + mitigation plan\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateHighRiskScoreAndLevel",
+                        "description": "if riskLevel from RiskLevelDetermination is High then the score is 4.0, riskLevel is High, the recommendation is \"Quarterly review + mitigation plan\";"
+                    },
+                    {
+                        "bal": "set decision to a new VendorRiskScore where the score is 0, the riskLevel is Low, the recommendation is \"Annual review\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultRiskScoreAndLevel",
+                        "description": "the score is 0, riskLevel is Low, the recommendation is \"Annual review\";"
+                    }
+                ],
+                "policy": "first"
+            }
+        ]
+    },
+    "metadata": {
+        "name": "VendorRiskScoring",
+        "type": "model",
+        "description": "A decision service to evaluate the risk level of vendors based on various risk factors.",
+        "summary": "Calculates the risk score of a vendor based on financial, operational, and compliance factors.",
+        "display_name": "Vendor Risk Scoring Service",
+        "locale": "en-US",
+        "publisher": "Risk Management Department"
+    }
+}

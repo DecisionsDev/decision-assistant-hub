@@ -1,0 +1,349 @@
+{
+    "api_version": "v1",
+    "kind": "DecisionService",
+    "datamodel": {
+        "classes": [
+            {
+                "name": "VendorAssessment",
+                "Fields": [
+                    {
+                        "name": "vendorName",
+                        "description": "The name of the vendor",
+                        "collection": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "operationalDependency",
+                        "description": "Importance of vendor to Acme's operations scored from 1 to 5",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "dataSensitivity",
+                        "description": "Type and volume of sensitive data handled scored from 1 to 5",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "cybersecurityMaturity",
+                        "description": "Security controls and certifications scored from 1 to 5",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "financialHealth",
+                        "description": "Vendor's financial stability scored from 1 to 5",
+                        "collection": false,
+                        "type": "int"
+                    }
+                ],
+                "jsonname": "VendorAssessment",
+                "description": "Details about the vendor being evaluated for risk"
+            },
+            {
+                "name": "AttributeScoring",
+                "Fields": [
+                    {
+                        "name": "operationalDependencyScore",
+                        "description": "Score for operational dependency",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "dataSensitivityScore",
+                        "description": "Score for data sensitivity",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "cybersecurityMaturityScore",
+                        "description": "Score for cybersecurity maturity",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "financialHealthScore",
+                        "description": "Score for financial health",
+                        "collection": false,
+                        "type": "int"
+                    }
+                ],
+                "jsonname": "AttributeScoring",
+                "description": "Scores of the four key attributes"
+            },
+            {
+                "name": "WeightedScoreCalculation",
+                "Fields": [
+                    {
+                        "name": "operationalDependencyWeightedScore",
+                        "description": "Weighted score for operational dependency",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "dataSensitivityWeightedScore",
+                        "description": "Weighted score for data sensitivity",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "cybersecurityMaturityWeightedScore",
+                        "description": "Weighted score for cybersecurity maturity",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "financialHealthWeightedScore",
+                        "description": "Weighted score for financial health",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "finalScore",
+                        "description": "Final score calculated as sum of weighted scores",
+                        "collection": false,
+                        "type": "number"
+                    }
+                ],
+                "jsonname": "WeightedScoreCalculation",
+                "description": "Weighted scores and final score"
+            },
+            {
+                "name": "RiskLevelDetermination",
+                "Fields": [
+                    {
+                        "name": "riskLevel",
+                        "description": "Risk level determined based on final score",
+                        "collection": false,
+                        "type": "RiskLevel"
+                    },
+                    {
+                        "name": "overrideReason",
+                        "description": "Reason for override if risk level was overridden",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "RiskLevelDetermination",
+                "description": "Determined risk level based on final score"
+            },
+            {
+                "name": "RiskScore",
+                "Fields": [
+                    {
+                        "name": "score",
+                        "description": "The overall risk score of the vendor",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "riskLevel",
+                        "description": "The risk level associated with the vendor based on the score",
+                        "collection": false,
+                        "type": "RiskLevel"
+                    }
+                ],
+                "jsonname": "RiskScore",
+                "description": "The calculated risk score of the vendor"
+            },
+            {
+                "name": "RiskLevel",
+                "Fields": [
+                    {
+                        "name": "Low",
+                        "description": "Low risk level",
+                        "collection": false
+                    },
+                    {
+                        "name": "Moderate",
+                        "description": "Moderate risk level",
+                        "collection": false
+                    },
+                    {
+                        "name": "High",
+                        "description": "High risk level",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "RiskLevel",
+                "description": "Enumeration of risk levels"
+            }
+        ]
+    },
+    "decisionmodel": {
+        "nodes": [
+            {
+                "name": "VendorAssessment",
+                "description": "Input parameter containing details about the vendor being assessed.",
+                "kind": "input",
+                "requirements": [],
+                "type": "VendorAssessment",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "AttributeScoring",
+                "description": "Scores four key attributes based on vendor assessment",
+                "kind": "decision",
+                "requirements": [
+                    "VendorAssessment"
+                ],
+                "type": "AttributeScoring",
+                "artifacts": [
+                    {
+                        "bal": "if the operationalDependency of VendorAssessment is at least 1 and the operationalDependency of VendorAssessment is at most 5 then set decision to a new AttributeScoring where the operationalDependencyScore is the operationalDependency of VendorAssessment;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ScoreOperationalDependency",
+                        "description": "if the operationalDependency is at least 1 and the operationalDependency is at most 5 then operationalDependencyScore is the operationalDependency;"
+                    },
+                    {
+                        "bal": "if the dataSensitivity of VendorAssessment is at least 1 and the dataSensitivity of VendorAssessment is at most 5 then set decision to a new AttributeScoring where the dataSensitivityScore is the dataSensitivity of VendorAssessment;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ScoreDataSensitivity",
+                        "description": "if the dataSensitivity is at least 1 and the dataSensitivity is at most 5 then dataSensitivityScore is the dataSensitivity;"
+                    },
+                    {
+                        "bal": "if the cybersecurityMaturity of VendorAssessment is at least 1 and the cybersecurityMaturity of VendorAssessment is at most 5 then set decision to a new AttributeScoring where the cybersecurityMaturityScore is the cybersecurityMaturity of VendorAssessment;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ScoreCybersecurityMaturity",
+                        "description": "if the cybersecurityMaturity is at least 1 and the cybersecurityMaturity is at most 5 then cybersecurityMaturityScore is the cybersecurityMaturity;"
+                    },
+                    {
+                        "bal": "if the financialHealth of VendorAssessment is at least 1 and the financialHealth of VendorAssessment is at most 5 then set decision to a new AttributeScoring where the financialHealthScore is the financialHealth of VendorAssessment;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "ScoreFinancialHealth",
+                        "description": "if the financialHealth is at least 1 and the financialHealth is at most 5 then financialHealthScore is the financialHealth;"
+                    },
+                    {
+                        "bal": "set decision to a new AttributeScoring where the operationalDependencyScore is 0, the dataSensitivityScore is 0, the cybersecurityMaturityScore is 0, the financialHealthScore is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultAttributeScoring",
+                        "description": "operationalDependencyScore is 0, dataSensitivityScore is 0, cybersecurityMaturityScore is 0, financialHealthScore is 0;"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "WeightedScoreCalculation",
+                "description": "Calculates weighted score using attribute scores and their respective weights",
+                "kind": "decision",
+                "requirements": [
+                    "AttributeScoring"
+                ],
+                "type": "WeightedScoreCalculation",
+                "artifacts": [
+                    {
+                        "bal": "if true then set decision to a new WeightedScoreCalculation where the operationalDependencyWeightedScore is (the operationalDependencyScore of AttributeScoring * 0.3), the dataSensitivityWeightedScore is (the dataSensitivityScore of AttributeScoring * 0.3), the cybersecurityMaturityWeightedScore is (the cybersecurityMaturityScore of AttributeScoring * 0.25), the financialHealthWeightedScore is (the financialHealthScore of AttributeScoring * 0.15), the finalScore is ((the operationalDependencyScore of AttributeScoring + the dataSensitivityScore of AttributeScoring) + the cybersecurityMaturityScore of AttributeScoring + the financialHealthScore of AttributeScoring);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateWeightedScores",
+                        "description": "if true then operationalDependencyWeightedScore is the operationalDependencyScore * 0.3, dataSensitivityWeightedScore is the dataSensitivityScore * 0.3, cybersecurityMaturityWeightedScore is the cybersecurityMaturityScore * 0.25, financialHealthWeightedScore is the financialHealthScore * 0.15, finalScore is the operationalDependencyScore + the dataSensitivityScore + the cybersecurityMaturityScore + the financialHealthWeightedScore;"
+                    },
+                    {
+                        "bal": "set decision to a new WeightedScoreCalculation where the operationalDependencyWeightedScore is 0, the dataSensitivityWeightedScore is 0, the cybersecurityMaturityWeightedScore is 0, the financialHealthWeightedScore is 0, the finalScore is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultWeightedScoreCalculation",
+                        "description": "operationalDependencyWeightedScore is 0, dataSensitivityWeightedScore is 0, cybersecurityMaturityWeightedScore is 0, financialHealthWeightedScore is 0, finalScore is 0;"
+                    }
+                ],
+                "policy": "sequence"
+            },
+            {
+                "name": "RiskLevelDetermination",
+                "description": "Determines risk level based on final score",
+                "kind": "decision",
+                "requirements": [
+                    "WeightedScoreCalculation"
+                ],
+                "type": "RiskLevelDetermination",
+                "artifacts": [
+                    {
+                        "bal": "if the finalScore of WeightedScoreCalculation is at least 3.5 or the operationalDependencyWeightedScore of WeightedScoreCalculation is 5 or the dataSensitivityWeightedScore of WeightedScoreCalculation is 5 or the cybersecurityMaturityWeightedScore of WeightedScoreCalculation is 5 or the financialHealthWeightedScore of WeightedScoreCalculation is 5 then set decision to a new RiskLevelDetermination where the riskLevel is High;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckHighRisk",
+                        "description": "if the finalScore from WeightedScoreCalculation is at least 3.5 or operationalDependencyScore from AttributeScoring is 5 or dataSensitivityScore from AttributeScoring is 5 or cybersecurityMaturityScore from AttributeScoring is 5 or financialHealthScore from AttributeScoring is 5 then riskLevel is High;"
+                    },
+                    {
+                        "bal": "if the finalScore of WeightedScoreCalculation is at least 2.5 and the finalScore of WeightedScoreCalculation is less than 3.5 then set decision to a new RiskLevelDetermination where the riskLevel is Moderate;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckModerateRisk",
+                        "description": "if the finalScore from WeightedScoreCalculation is at least 2.5 and the finalScore from WeightedScoreCalculation is less than 3.5 then riskLevel is Moderate;"
+                    },
+                    {
+                        "bal": "if the finalScore of WeightedScoreCalculation is less than 2.5 then set decision to a new RiskLevelDetermination where the riskLevel is Low;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckLowRisk",
+                        "description": "if the finalScore from WeightedScoreCalculation is less than 2.5 then riskLevel is Low;"
+                    },
+                    {
+                        "bal": "set decision to a new RiskLevelDetermination where the riskLevel is Low;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultRiskLevel",
+                        "description": "riskLevel is Low;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "RiskScore",
+                "description": "Output parameter containing the calculated risk score of the vendor",
+                "kind": "decision",
+                "requirements": [
+                    "RiskLevelDetermination",
+                    "WeightedScoreCalculation"
+                ],
+                "type": "RiskScore",
+                "artifacts": [
+                    {
+                        "bal": "if the riskLevel is High then set decision to a new RiskScore where the score is the finalScore of WeightedScoreCalculation, the riskLevel is High;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "SetRiskScoreAndLevel",
+                        "description": "if riskLevel from RiskLevelDetermination is High then score is the finalScore from WeightedScoreCalculation, riskLevel is High;"
+                    },
+                    {
+                        "bal": "if the riskLevel is Moderate then set decision to a new RiskScore where the score is the finalScore of WeightedScoreCalculation, the riskLevel is Moderate;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "SetRiskScoreAndLevelModerate",
+                        "description": "if riskLevel from RiskLevelDetermination is Moderate then score is the finalScore from WeightedScoreCalculation, riskLevel is Moderate;"
+                    },
+                    {
+                        "bal": "if the riskLevel is Low then set decision to a new RiskScore where the score is the finalScore of WeightedScoreCalculation, the riskLevel is Low;",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "SetRiskScoreAndLevelLow",
+                        "description": "if riskLevel from RiskLevelDetermination is Low then score is the finalScore from WeightedScoreCalculation, riskLevel is Low;"
+                    },
+                    {
+                        "bal": "set decision to a new RiskScore where the score is 0, the riskLevel is Low;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultRiskScore",
+                        "description": "score is 0, riskLevel is Low;"
+                    }
+                ],
+                "policy": "first"
+            }
+        ]
+    },
+    "metadata": {
+        "name": "VendorRiskScoring",
+        "type": "model",
+        "description": "A decision service to evaluate the risk score of vendors based on various risk factors.",
+        "summary": "Calculates a risk score for vendors based on predefined criteria.",
+        "display_name": "Vendor Risk Scoring Service",
+        "locale": "en-US",
+        "publisher": "Risk Management Department"
+    }
+}
