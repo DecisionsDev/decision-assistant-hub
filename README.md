@@ -54,16 +54,16 @@ Explore real-world scenarios where decision automation helps formalize and opera
 
 ---
 
-## 🚀 Get Started
+## Get Started
 
-1. 🔧 Make sure you're set up with the **Decision Assistant**
-2. 📂 Browse the `examples/` folder by domain to find a scenario similar to yours.
-3. 🧠 Read the `policy.md`, then explore the generated rules (`rules.md`, `.json`, or `.dmn`).
-4. 🎥 Watch demo videos in [`media/videos/`](media/videos/).
+1. Make sure you're set up with the **Decision Assistant**
+2. Browse the `examples/` folder by domain to find a scenario similar to yours.
+3. Read the `policy.md`, then explore the generated rules (`rules.md`, `.json`, or `.dmn`).
+4. Watch demo videos in [`media/videos/`](media/videos/).
 
 ---
 
-<!-- ## 🧠 Learn by Doing
+<!-- ## Learn by Doing
 
 Start with one of these tutorials:
 
@@ -72,7 +72,7 @@ Start with one of these tutorials:
 
 --- -->
 
-## [`💡 Practical Guide to writing Policies`](docs/tips_and_tricks.md)
+## [`Practical Guide to writing Policies`](docs/tips_and_tricks.md)
 
 ---
 
@@ -80,14 +80,14 @@ Start with one of these tutorials:
 
 ---
 
-<!-- ## 🎥 Media
+<!-- ## Media
 
-- 🖥️ [Demo Walkthrough](media/videos/demo_walkthrough.mp4)
-- 📋 [From Policy to Rules – Explained](media/videos/from_policy_to_rules.mp4)
+- [Demo Walkthrough](media/videos/demo_walkthrough.mp4)
+- [From Policy to Rules – Explained](media/videos/from_policy_to_rules.mp4)
 
 --- -->
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions!
 
@@ -95,13 +95,13 @@ We welcome contributions!
 
 ---
 
-## 🛡 License
+## License
 
 This project is licensed under the **Apache 2.0**.
 
 ---
 
-<!-- ## 📬 Contact
+<!-- ## Contact
 
 Have a use case to showcase?  
 Open an issue or start a [discussion](https://github.com/your-org/decision-assistant-hub/discussions) — we'd love to hear from you! -->
