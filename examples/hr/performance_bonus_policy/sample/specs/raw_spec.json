@@ -1,0 +1,398 @@
+{
+    "api_version": "v1",
+    "kind": "DecisionService",
+    "datamodel": {
+        "classes": [
+            {
+                "name": "EmployeePerformance",
+                "Fields": [
+                    {
+                        "name": "rating",
+                        "description": "The employee's performance rating",
+                        "collection": false,
+                        "type": "PerformanceRating"
+                    },
+                    {
+                        "name": "tenure",
+                        "description": "The employee's tenure in years",
+                        "collection": false,
+                        "type": "int"
+                    },
+                    {
+                        "name": "salary",
+                        "description": "The employee's current salary",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "employmentType",
+                        "description": "The type of employment (full-time, part-time, contract, etc.)",
+                        "collection": false,
+                        "type": "EmploymentType"
+                    },
+                    {
+                        "name": "jobLevel",
+                        "description": "The employee's job level or seniority",
+                        "collection": false,
+                        "type": "JobLevel"
+                    },
+                    {
+                        "name": "isOnPIP",
+                        "description": "Whether the employee is on a Performance Improvement Plan",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "leaveOfAbsence",
+                        "description": "Whether the employee has taken a leave of absence",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "promotionStatus",
+                        "description": "Whether the employee was promoted mid-cycle",
+                        "collection": false,
+                        "type": "PromotionStatus"
+                    }
+                ],
+                "jsonname": "EmployeePerformance",
+                "description": "Employee performance details"
+            },
+            {
+                "name": "PerformanceRating",
+                "Fields": [
+                    {
+                        "name": "Excellent",
+                        "description": "Exceeds expectations",
+                        "collection": false
+                    },
+                    {
+                        "name": "Good",
+                        "description": "Meets expectations",
+                        "collection": false
+                    },
+                    {
+                        "name": "Fair",
+                        "description": "Needs improvement",
+                        "collection": false
+                    },
+                    {
+                        "name": "Poor",
+                        "description": "Unsatisfactory",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "PerformanceRating",
+                "description": "Enumeration of performance ratings"
+            },
+            {
+                "name": "EmploymentType",
+                "Fields": [
+                    {
+                        "name": "FullTime",
+                        "description": "Full-time employee",
+                        "collection": false
+                    },
+                    {
+                        "name": "PartTime",
+                        "description": "Part-time employee",
+                        "collection": false
+                    },
+                    {
+                        "name": "Contract",
+                        "description": "Contract employee",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "EmploymentType",
+                "description": "Enumeration of employment types"
+            },
+            {
+                "name": "JobLevel",
+                "Fields": [
+                    {
+                        "name": "Associate",
+                        "description": "Entry-level or associate",
+                        "collection": false
+                    },
+                    {
+                        "name": "MidLevel",
+                        "description": "Mid-level or senior associate",
+                        "collection": false
+                    },
+                    {
+                        "name": "Manager",
+                        "description": "Manager or senior manager",
+                        "collection": false
+                    },
+                    {
+                        "name": "Director",
+                        "description": "Director or above",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "JobLevel",
+                "description": "Enumeration of job levels"
+            },
+            {
+                "name": "PromotionStatus",
+                "Fields": [
+                    {
+                        "name": "NotPromoted",
+                        "description": "Not promoted",
+                        "collection": false
+                    },
+                    {
+                        "name": "Promoted",
+                        "description": "Promoted mid-cycle",
+                        "collection": false
+                    }
+                ],
+                "jsonname": "PromotionStatus",
+                "description": "Enumeration of promotion status"
+            },
+            {
+                "name": "EligibilityCheck",
+                "Fields": [
+                    {
+                        "name": "isEligible",
+                        "description": "Whether the employee is eligible for a bonus",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for ineligibility, if any",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "EligibilityCheck",
+                "description": "Eligibility check results"
+            },
+            {
+                "name": "BonusCalculation",
+                "Fields": [
+                    {
+                        "name": "bonusPercentage",
+                        "description": "The calculated bonus percentage based on job level and performance",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "bonusAmount",
+                        "description": "The calculated bonus amount",
+                        "collection": false,
+                        "type": "number"
+                    }
+                ],
+                "jsonname": "BonusCalculation",
+                "description": "Bonus calculation results"
+            },
+            {
+                "name": "BonusDecision",
+                "Fields": [
+                    {
+                        "name": "bonusAmount",
+                        "description": "The calculated bonus amount",
+                        "collection": false,
+                        "type": "number"
+                    },
+                    {
+                        "name": "eligibility",
+                        "description": "Whether the employee is eligible for a bonus",
+                        "collection": false,
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "reason",
+                        "description": "Reason for bonus eligibility or ineligibility",
+                        "collection": false,
+                        "type": "string"
+                    }
+                ],
+                "jsonname": "BonusDecision",
+                "description": "Decision on the employee's bonus"
+            }
+        ]
+    },
+    "decisionmodel": {
+        "nodes": [
+            {
+                "name": "EmployeePerformance",
+                "description": "Input containing employee performance details",
+                "kind": "input",
+                "requirements": [],
+                "type": "EmployeePerformance",
+                "artifacts": [],
+                "policy": "sequence"
+            },
+            {
+                "name": "EligibilityCheck",
+                "description": "Checks if the employee is eligible for a bonus based on employment type, performance rating, and other factors",
+                "kind": "decision",
+                "requirements": [
+                    "EmployeePerformance"
+                ],
+                "type": "EligibilityCheck",
+                "artifacts": [
+                    {
+                        "bal": "if the employmentType of EmployeePerformance is FullTime then set decision to a new EligibilityCheck where isEligible is true, the reason is \"Full-time employee\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckFullTimeEmployee",
+                        "description": "if the employmentType is FullTime then isEligible is true, the reason is \"Full-time employee\";"
+                    },
+                    {
+                        "bal": "if the employmentType of EmployeePerformance is PartTime or the employmentType of EmployeePerformance is Contract then set decision to a new EligibilityCheck where isEligible is false, the reason is \"Part-time or contract employee\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckPartTimeOrContractEmployee",
+                        "description": "if the employmentType is PartTime or the employmentType is Contract then isEligible is false, the reason is \"Part-time or contract employee\";"
+                    },
+                    {
+                        "bal": "if the rating of EmployeePerformance is Excellent or the rating of EmployeePerformance is Good or the rating of EmployeePerformance is Fair then set decision to a new EligibilityCheck where isEligible is true, the reason is \"Performance rating is eligible\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckPerformanceRating",
+                        "description": "if the rating is Excellent or the rating is Good or the rating is Fair then isEligible is true, the reason is \"Performance rating is eligible\";"
+                    },
+                    {
+                        "bal": "if the rating of EmployeePerformance is Poor or the rating of EmployeePerformance is Fair then set decision to a new EligibilityCheck where isEligible is false, the reason is \"Poor performance\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckPoorPerformance",
+                        "description": "if the rating is Poor or the rating is Fair then isEligible is false, the reason is \"Poor performance\";"
+                    },
+                    {
+                        "bal": "if isOnPIP of EmployeePerformance is true then set decision to a new EligibilityCheck where isEligible is false, the reason is \"Employee is on PIP\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckOnPIP",
+                        "description": "if isOnPIP is true then isEligible is false, the reason is \"Employee is on PIP\";"
+                    },
+                    {
+                        "bal": "if leaveOfAbsence of EmployeePerformance is true then set decision to a new EligibilityCheck where isEligible is false, the reason is \"Employee is on leave of absence\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CheckLeaveOfAbsence",
+                        "description": "if leaveOfAbsence is true then isEligible is false, the reason is \"Employee is on leave of absence\";"
+                    },
+                    {
+                        "bal": "set decision to a new EligibilityCheck where isEligible is false, the reason is \"Not eligible by default\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultEligibility",
+                        "description": "isEligible is false, the reason is \"Not eligible by default\";"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "BonusCalculation",
+                "description": "Calculates the bonus amount based on job level, performance rating, and salary",
+                "kind": "decision",
+                "requirements": [
+                    "EmployeePerformance",
+                    "EligibilityCheck"
+                ],
+                "type": "BonusCalculation",
+                "artifacts": [
+                    {
+                        "bal": "if the rating of EmployeePerformance is Excellent and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.2);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForExcellentRating",
+                        "description": "if the rating from EmployeePerformance is Excellent and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.2;"
+                    },
+                    {
+                        "bal": "if the rating of EmployeePerformance is Good and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.15);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForGoodRating",
+                        "description": "if the rating from EmployeePerformance is Good and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.15;"
+                    },
+                    {
+                        "bal": "if the rating of EmployeePerformance is Fair and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.1);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForFairRating",
+                        "description": "if the rating from EmployeePerformance is Fair and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.1;"
+                    },
+                    {
+                        "bal": "if the jobLevel of EmployeePerformance is Associate and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.05);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForAssociate",
+                        "description": "if the jobLevel from EmployeePerformance is Associate and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.05;"
+                    },
+                    {
+                        "bal": "if the jobLevel of EmployeePerformance is MidLevel and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.08);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForMidLevel",
+                        "description": "if the jobLevel from EmployeePerformance is MidLevel and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.08;"
+                    },
+                    {
+                        "bal": "if the jobLevel of EmployeePerformance is Manager and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.12);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForManager",
+                        "description": "if the jobLevel from EmployeePerformance is Manager and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.12;"
+                    },
+                    {
+                        "bal": "if the jobLevel of EmployeePerformance is Director and isEligible is true then set decision to a new BonusCalculation where the bonusPercentage is (the salary of EmployeePerformance * 0.15);",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "CalculateBonusForDirector",
+                        "description": "if the jobLevel from EmployeePerformance is Director and isEligible from EligibilityCheck is true then the bonusPercentage is the salary * 0.15;"
+                    },
+                    {
+                        "bal": "set decision to a new BonusCalculation where the bonusPercentage is 0;",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultBonusCalculation",
+                        "description": "the bonusPercentage is 0;"
+                    }
+                ],
+                "policy": "first"
+            },
+            {
+                "name": "BonusDecision",
+                "description": "Output containing the bonus decision",
+                "kind": "decision",
+                "requirements": [
+                    "EligibilityCheck",
+                    "BonusCalculation"
+                ],
+                "type": "BonusDecision",
+                "artifacts": [
+                    {
+                        "bal": "if isEligible is true then set decision to a new BonusDecision where the bonusAmount is the bonusPercentage of BonusCalculation, eligibility is true, the reason is \"Eligible for bonus\";",
+                        "default": false,
+                        "kind": "rule",
+                        "name": "DetermineBonusAmount",
+                        "description": "if isEligible from EligibilityCheck is true then the bonusAmount is the bonusPercentage from BonusCalculation, eligibility is true, the reason is \"Eligible for bonus\";"
+                    },
+                    {
+                        "bal": "set decision to a new BonusDecision where the bonusAmount is 0, eligibility is false, the reason is \"Not eligible for bonus\";",
+                        "default": true,
+                        "kind": "rule",
+                        "name": "DefaultBonusDecision",
+                        "description": "the bonusAmount is 0, eligibility is false, the reason is \"Not eligible for bonus\";"
+                    }
+                ],
+                "policy": "first"
+            }
+        ]
+    },
+    "metadata": {
+        "name": "PerformanceBonus",
+        "type": "model",
+        "description": "A decision service to determine employee performance bonus based on performance rating and other factors.",
+        "summary": "Calculates employee performance bonus based on performance rating and tenure.",
+        "display_name": "Performance Bonus Decision Service",
+        "locale": "en-US",
+        "publisher": "HR Department"
+    }
+}
