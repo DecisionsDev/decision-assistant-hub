@@ -1,4 +1,4 @@
-# 🤖 Decision Assistant Hub
+# Decision Assistant Hub
 
 The **Decision Assistant Hub** is the companion repository to the [Decision Assistant](#), an AI-powered assistant that helps users turn business policies into structured decision models like rulesets and DMN diagrams.
 
@@ -6,17 +6,17 @@ This hub provides **curated examples**, **tutorials**, **tips**, and **video wal
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 This repository is for:
-- 📚 Learning how to convert natural language policies into formalized decision models
-- 🧪 Exploring domain-specific examples with rule outputs
-- 🎥 Watching guided walkthroughs and demos
-- 💡 Getting tips, prompt ideas, and modeling strategies
+- Learning how to convert natural language policies into formalized decision models
+- Exploring domain-specific examples with rule outputs
+- Watching guided walkthroughs and demos
+- Getting tips, prompt ideas, and modeling strategies
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 | Folder | Description |
 |--------|-------------|
@@ -28,27 +28,27 @@ This repository is for:
 
 ---
 
-## 📚 Example Use Cases by Domain
+## Example Use Cases by Domain
 
 Explore real-world scenarios where decision automation helps formalize and operationalize business logic:
 
-### 👥 HR
+### HR
 - **[Time Off](examples/hr/time_off_policy/)**  
   Automate leave types, accruals, eligibility, and carryover logic.  
 - **[Performance Bonus](examples/hr/performance_bonus_policy/)**  
   Rules to determine bonus eligibility based on performance tiers and seniority.
 
-### 💵 Finance
+### Finance
 - **[Expense Approval](examples/finance/expense_approval/)**  
   Multi-level approval rules and threshold-based routing using a decision table.
 
-### 🛡 Compliance
+### Compliance
 - **[Anti-Money Laundering (AML)](examples/compliance/aml_policy/)**  
   Transaction pattern rules and risk classification logic.  
-- **[Know Your Customer (KYC)](examples/compliance/kyc_policy/)**  
-  Decision logic for onboarding, document verification, and customer risk scoring.
+<!-- - **[Know Your Customer (KYC)](examples/compliance/kyc_policy/)**  
+  Decision logic for onboarding, document verification, and customer risk scoring. -->
 
-### 🏗 Operations
+### Operations
 - **[Vendor Risk Scoring](examples/operations/vendor_risk_scoring/)**  
   Model for supplier assessment using weighted risk attributes and thresholds.
 
