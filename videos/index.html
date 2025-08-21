@@ -1,8 +1,49 @@
 <!doctype html>
-<html>
-  <body>
-    <video controls width="720" poster="poster.png">
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Generating a personal loan approval decision automation — Short Demo</title>
+
+  <!-- IBM Plex Sans (and optional Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      line-height: 1.6;
+      color: #111;
+    }
+    .video-block { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    .video-title {
+      margin: 0 0 .75rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: clamp(1.125rem, 2.2vw + .2rem, 1.5rem);
+      letter-spacing: .2px;
+    }
+    video {
+      width: 100%;
+      aspect-ratio: 16 / 9;   /* keep good vertical size */
+      object-fit: contain;    /* use 'cover' if you prefer filling the frame */
+      display: block;
+      border-radius: 12px;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <main class="video-block">
+    <h2 class="video-title">Generating a personal loan approval decision automation — Short Demo</h2>
+    <video controls poster="poster.png">
       <source src="personal_loan_approval.08.20.25.mp4" type="video/mp4">
+      Your browser does not support the video tag.
     </video>
-  </body>
+  </main>
+</body>
 </html>
