@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Generating a personal loan approval decision automation — Short Demo</title>
+  <title>Decision Assistant Media</title>
 
-  <!-- IBM Plex Sans (and optional Mono) -->
+  <!-- IBM Plex Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; }
@@ -19,18 +19,28 @@
       line-height: 1.6;
       color: #111;
     }
-    .video-block { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+
+    .site-title {
+      margin: 2rem auto 1rem;
+      text-align: center;
+      font-weight: 400;                 /* not bold */
+      font-size: clamp(1.25rem, 2.4vw + .6rem, 2rem);
+      letter-spacing: .2px;
+    }
+
+    .video-block { max-width: 900px; margin: 0 auto 2.5rem; padding: 0 1rem; }
     .video-title {
       margin: 0 0 .75rem;
       text-align: center;
-      font-weight: 700;
-      font-size: clamp(1.125rem, 2.2vw + .2rem, 1.5rem);
+      font-weight: 400;                 /* not bold */
+      font-size: clamp(1rem, 1.8vw + .2rem, 1.25rem);
       letter-spacing: .2px;
     }
+
     video {
       width: 100%;
-      aspect-ratio: 16 / 9;   /* keep good vertical size */
-      object-fit: contain;    /* use 'cover' if you prefer filling the frame */
+      aspect-ratio: 16 / 9;
+      object-fit: contain;              /* use 'cover' if you want it to fill */
       display: block;
       border-radius: 12px;
       background: #000;
@@ -38,6 +48,10 @@
   </style>
 </head>
 <body>
+  <header>
+    <h1 class="site-title">Decision Assistant Media</h1>
+  </header>
+
   <main class="video-block">
     <h2 class="video-title">Generating a personal loan approval decision automation — Short Demo</h2>
     <video controls poster="poster.png">
