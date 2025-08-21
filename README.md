@@ -107,11 +107,11 @@ Find answers to frequently asked questions.
 --- -->
 ## Videos
 
+▶️ [Play the demo](https://decisionsdev.github.io/decision-assistant-hub/pages/videos/video-player.html)
+
 <video controls width="600">
   <source src="https://bucket-videos-nct3dorhqst.s3.us-south.cloud-object-storage.appdomain.cloud/decision_assistant_personal_loan_approval.08.20.25.mp4" type="video/mp4">
 </video>
-
-[Watch the loan approval video](https://github.com/DecisionsDev/decision-assistant-hub/raw/refs/heads/main/videos/personal_loan_approval.08.20.25.mp4)
 
 ## Contributing
 
