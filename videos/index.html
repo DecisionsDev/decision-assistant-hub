@@ -1,8 +1,19 @@
 <!doctype html>
 <html>
+  <head>
+    <style>
+      .video-block { max-width: 720px; margin: 2rem auto; }
+      .video-title { margin: 0 0 .5rem; text-align:center; font:700 1.2rem/1.2 system-ui; }
+      video { width:100%; height:auto; display:block; border-radius:12px; }
+    </style>
+  </head>
   <body>
-    <video controls width="720" poster="poster.png">
-      <source src="personal_loan_approval.08.20.25.mp4" type="video/mp4">
-    </video>
+    <div class="video-block">
+      <h2 class="video-title">Generating a personal loan approval decision automation — Short Demo</h2>
+      <video controls poster="poster.png">
+        <source src="personal_loan_approval.08.20.25.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
   </body>
 </html>
