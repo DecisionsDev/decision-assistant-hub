@@ -107,7 +107,7 @@ Find answers to frequently asked questions.
 - [From Policy to Rules – Explained](media/videos/from_policy_to_rules.mp4)
 --- -->
 
-▶️ [Play the demo videos](https://decisionsdev.github.io/decision-assistant-hub/pages/videos/index.html)
+▶️ [Play the demo videos](https://decisionsdev.github.io/decision-assistant-hub/videos)
 
 
 ## Contributing
