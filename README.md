@@ -42,6 +42,8 @@ Explore real-world scenarios where decision automation helps formalize and opera
   Multi-level approval rules and threshold-based routing using a decision table.
 - **[Personal Loan](examples/finance/personal_loan/)**  
   Rules to determine Personal Loan Eligibility
+- **[Motor Insurance](examples/finance/motor_insurance/)**  
+  Rules to determine Insurance for motor vehicle
   
 ### Compliance
 - **[Anti-Money Laundering (AML)](examples/compliance/aml_policy/)**  
