@@ -10,7 +10,7 @@ BAL expects enum values to be referenced directly. Using quotes causes type mism
 Remove the double quotes and use the enum values directly.
 
 **Demo Video:**  
-[Watch the demo](videos/tips_and_tricks/tip_1.mp4)
+[Watch the demo](../videos/syntax_errors_fixes/tip_1.mp4)
 
 --- 
 
@@ -26,7 +26,7 @@ BAL does not support the `of <Class>` syntax for boolean fields. This results in
 Reference boolean fields directly without the class context.
 
 **Demo Video:**  
-[Watch the demo](videos/tips_and_tricks/tip_2.mp4)
+[Watch the demo](../videos/syntax_errors_fixes/tip_3.mp4)
 
 ---
 
@@ -42,6 +42,6 @@ In BAL, default rules are meant to execute only when no other conditions are met
 Remove all conditions from default rules. The rule should only contain the action to be taken.
 
 **Demo Video:**  
-[Watch the demo](videos/tips_and_tricks/tip_3.mp4)
+[Watch the demo](../videos/syntax_errors_fixes/tip_3.mp4)
 
 ---
