@@ -11,6 +11,7 @@ Remove the double quotes and use the enum values directly.
 
 **Demo Video:**  
 [Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_1)
+▶️ [Play the demo videos](https://decisionsdev.github.io/decision-assistant-hub/videos)
 
 --- 
 
