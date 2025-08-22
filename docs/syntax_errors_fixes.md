@@ -26,7 +26,7 @@ BAL does not support the `of <Class>` syntax for boolean fields. This results in
 Reference boolean fields directly without the class context.
 
 **Demo Video:**  
-[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_2/tip_2.mp4)
+[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_2)
 
 ---
 
@@ -42,7 +42,7 @@ In BAL, default rules are meant to execute only when no other conditions are met
 Remove all conditions from default rules. The rule should only contain the action to be taken.
 
 **Demo Video:**  
-[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_3/tip_3.mp4)
+[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_3)
 
 ---
 
@@ -59,7 +59,7 @@ Always use "the" before non-boolean variables.
 
 
 **Demo Video:**  
-[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_4/tip_4.mp4)
+[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_4)
 
 ## Tip 5: Do Not Use "the" Before Boolean Variables
 
@@ -73,7 +73,7 @@ BAL syntax does not allow the article "the" before boolean variables. Including 
 Reference boolean variables directly without using "the".
 
 **Demo Video:**  
-[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_5/tip_5.mp4)
+[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_5)
 
 ---
 
@@ -151,7 +151,7 @@ Use `{ ' ' }` to represent an empty list.
 
 
 **Demo Video:**  
-[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_7/tip_7.mp4)
+[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_7)
 
 ---
 
