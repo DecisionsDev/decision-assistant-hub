@@ -10,7 +10,7 @@ BAL expects enum values to be referenced directly. Using quotes causes type mism
 Remove the double quotes and use the enum values directly.
 
 **Demo Video:**  
-[Watch the demo](../videos/syntax_errors_fixes/tip_1.mp4)
+[Watch the demo](../videos/syntax_errors_fixes/tip_1/tip1.html)
 
 --- 
 
@@ -26,7 +26,7 @@ BAL does not support the `of <Class>` syntax for boolean fields. This results in
 Reference boolean fields directly without the class context.
 
 **Demo Video:**  
-[Watch the demo](../videos/syntax_errors_fixes/tip_3.mp4)
+[Watch the demo](../videos/syntax_errors_fixes/tip_2.mp4)
 
 ---
 
