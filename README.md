@@ -1,6 +1,6 @@
 # Decision Assistant Hub
 
-The **Decision Assistant Hub** is the companion repository to the [Decision Assistant](#), an AI-powered assistant that helps users turn business policies into structured decision models like rulesets and DMN diagrams.
+The **Decision Assistant Hub** is the companion repository to the Decision Assistant, an AI-powered assistant that helps users turn business policies into structured decision models like rulesets and DMN diagrams.
 
 This hub provides **curated examples**, **tutorials**, **tips**, and **video walkthroughs** to help you understand how to work with the assistant and apply it to real-world decision automation scenarios.
   
@@ -21,7 +21,7 @@ This repository is for:
 |--------|-------------|
 | `examples/` | Sample business policies and their automated decision models, organized by domain |
 | `docs/` | Getting started guides, tips, and FAQs |
-| `media/` | Screenshots and video walkthroughs |
+| `videos/` | Screenshots and video walkthroughs |
 | `tutorials/` | Step-by-step usage guides |
 | `CONTRIBUTING.md` | Guidelines for contributing new examples or content |
 
@@ -62,7 +62,7 @@ Explore real-world scenarios where decision automation helps formalize and opera
 1. Make sure you're set up with the **Decision Assistant**
 2. Browse the `examples/` folder by domain to find a scenario similar to yours.
 3. Read the `policy.md`, then explore the generated rules (`rules.md`, `.json`, or `.dmn`).
-4. Watch demo videos in [`media/videos/`](media/videos/).
+4. Watch demo videos in [`videos/`](videos/).
 
 
 <!-- ## Learn by Doing
@@ -88,7 +88,7 @@ Learn how to draft effective policies for your organization.
 
 Tips and tricks to resolve common BAL syntax issues.
 
-[`Click Here`](docs/tips_and_tricks.md) for the guide.
+[`Click Here`](docs/syntax_errors_fixes.md) to read the guide.
 
 ---
 
