@@ -10,7 +10,7 @@ BAL expects enum values to be referenced directly. Using quotes causes type mism
 Remove the double quotes and use the enum values directly.
 
 **Demo Video:**  
-[Watch the demo](../videos/syntax_errors_fixes/tip_1/index.html)
+[Watch the demo](../videos/syntax_errors_fixes/tip_1)
 
 --- 
 
