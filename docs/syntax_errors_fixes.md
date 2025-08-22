@@ -10,7 +10,7 @@ BAL expects enum values to be referenced directly. Using quotes causes type mism
 Remove the double quotes and use the enum values directly.
 
 **Demo Video:**  
-[Watch the demo](https://github.com/DecisionsDev/decision-assistant-hub/blob/johnjoby/add-tips-tricks/videos/syntax_errors_fixes/tip_1)
+[Watch the demo](https://decisionsdev.github.io/decision-assistant-hub/videos/syntax_errors_fixes/tip_1)
 
 --- 
 
