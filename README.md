@@ -61,7 +61,7 @@ Explore real-world scenarios where decision automation helps formalize and opera
 
 1. Make sure you're set up with the **Decision Assistant**
 2. Browse the `examples/` folder by domain to find a scenario similar to yours.
-3. Read the `policy.md`, then explore the generated rules (`rules.md`, `.json`, or `.dmn`).
+3. Read the `policy.md`, then explore the generated decision services.
 4. Watch demo videos in [`videos/`](videos/).
 
 
