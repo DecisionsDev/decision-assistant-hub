@@ -9,23 +9,22 @@ To be considered for a loan, applicants must meet the following requirements:
 * Age: Applicants must be at least 18 years old.
 * Residency: Must be a resident or citizen of the United States.
 * Credit Score:
-* Minimum credit score of 600.
-* Applicants with credit scores below this threshold may be rejected or offered alternative loan terms (e.g., higher interest rates or co-signer requirements).
+   * Minimum credit score of 600.
+   * Applicants with credit scores below this threshold may be rejected or offered alternative loan terms (e.g., higher interest rates or co-signer requirements).
 * Income:
-* Minimum annual income of $30,000.
-* Proof of income (pay stubs, tax returns, or bank statements) must be provided.
+   * Minimum annual income of $30,000.
+   * Proof of income (pay stubs, tax returns, or bank statements) must be provided.
 * Employment Status:
-* Applicants must have stable employment or a reliable source of income.
-* Self-employed individuals must provide at least 2 years of financial records.
+   * Applicants must have stable employment or a reliable source of income.
+   * Self-employed individuals must provide at least 2 years of financial records.
 * Debt-to-Income Ratio (DTI):
-* The maximum allowable DTI is 40%. (DTI is calculated by dividing total monthly debt payments by gross monthly
+   * The maximum allowable DTI is 40%. (DTI is calculated by dividing total monthly debt payments by gross monthly
 income.)
-* a DTI of up to 62% is allowed if the borrower owns his house.
+   * a DTI of up to 62% is allowed if the borrower owns his house.
 * Loan Amount:
-* The loan amount requested must be within a range of $5,000 to $50,000.
-3IBM TechXchange 2025 / © 2025 IBM Corporation
-* Loan amounts exceeding the maximum limit will be subject to additional approval.
-##Loan Application Process
+   * The loan amount requested must be within a range of $5,000 to $50,000.
+   * Loan amounts exceeding the maximum limit will be subject to additional approval.
+## Loan Application Process
 ### Submission:
 Applicants must complete an online or in-person loan application form.
 All required documentation (proof of identity, income, and credit history) must be submitted with the application.
@@ -40,22 +39,29 @@ Approval/Denial:
 Approval: Applicants who meet the criteria will receive loan terms, including interest rates and repayment schedules.
 Denial: Applicants who do not meet the criteria will receive a notification stating the reason(s) for rejection and any
 corrective actions that may improve future applications.
-Loan Terms & Conditions
-Interest Rates:
+
+## Loan Terms & Conditions
+### Interest Rates:
 Interest rates are determined based on the applicant’s credit score and the loan amount.
 Rates typically range from 5% to 15% APR (Annual Percentage Rate).
-Repayment Period:
+
+### Repayment Period:
 Standard loan repayment terms range from 12 to 60 months.
-Late Payment Penalties:
+
+### Late Payment Penalties:
 Late payments will incur penalties of $25 or 5% of the monthly payment, whichever is greater.
-Prepayment Option:
+
+### Prepayment Option:
 Loans may be repaid early without penalties unless otherwise specified in the terms.
-Exceptions and Special Cases
+
+### Exceptions and Special Cases
 Co-Signers:
 If the applicant does not meet the credit score or income criteria, they may apply with a co-signer who meets the necessary
 qualifications.
+
 ## Manual Review:
 In cases where the applicant’s situation is not clearly addressed by the criteria, a manual review by a senior loan officer may
 be conducted.
+
 ## Review and Updates
 This policy is subject to periodic reviews and updates as needed to align with regulatory requirements and market conditions.
