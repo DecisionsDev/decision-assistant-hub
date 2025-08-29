@@ -17,6 +17,6 @@
 | 12 | An applicant is 70 years old, earns $60,000/year, has a credit score of 650, DTI 39%, and requests $20,000. All documents are complete. Should they be approved? | Approved | No upper age limit stated; meets all other requirements. |
 | 13 | An applicant is 50 years old, earns $120,000/year, has a credit score of 750, DTI 65%, owns their home, and requests $30,000. Should they be approved? | Denied | Even with homeowner exception, DTI must be ≤ 62%; applicant exceeds this. |
 
-Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $1000 of debt per month. I have stable employment and I'd like to borrow $10,000.
-Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment and I'd like to borrow $10,000.
-Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment, I own my house and I'd like to borrow $10,000.
+* Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $1000 of debt per month. I have stable employment and I'd like to borrow $10,000.
+* Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment and I'd like to borrow $10,000.
+* Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment, I own my house and I'd like to borrow $10,000.
