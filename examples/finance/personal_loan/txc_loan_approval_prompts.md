@@ -20,3 +20,4 @@
 * Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $1000 of debt per month. I have stable employment and I'd like to borrow $10,000.
 * Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment and I'd like to borrow $10,000.
 * Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment, I own my house and I'd like to borrow $10,000.
+* Hi, I'd like to get a loan. Here are some information: my income is $40,000 a year, I'm a US citizen, my credit score is 600 and I have $2000 of debt per month. I have stable employment, I don't own my house and I'd like to borrow $10,000. -> Denied
