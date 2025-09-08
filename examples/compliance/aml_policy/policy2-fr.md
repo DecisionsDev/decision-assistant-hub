@@ -1,4 +1,4 @@
-Note: Here is a policy in French. Keep in mind that we want to extract a decision service expressed in English from it.
+Here is a policy in French. Keep in mind that we want to extract a decision service expressed in English from it.
 
 # ACME CORP – Politique de Lutte contre le Blanchiment de Capitaux et le Financement du Terrorisme (France)
 
