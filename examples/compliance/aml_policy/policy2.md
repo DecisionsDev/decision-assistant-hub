@@ -1,12 +1,10 @@
 # ACME CORP – Anti–Money Laundering and Counter–Terrorist Financing Policy - 2
 
 
----
 
 ## 1. Purpose
 This policy defines the measures taken by Acme Corp to detect and prevent money laundering and terrorist financing in accordance with French and EU regulations. It applies to all business units, channels, and customer types.
 
----
 
 ## 2. Customer Risk Classification
 
@@ -17,7 +15,6 @@ This policy defines the measures taken by Acme Corp to detect and prevent money 
 
 The Compliance team may override this classification based on alerts, investigation results, or professional judgment.
 
----
 
 ## 3. Data Requirements
 
@@ -55,7 +52,6 @@ The Compliance team may override this classification based on alerts, investigat
 - FATF high-risk country list
 - Embargoed countries list
 
----
 
 ## 4. Transaction Monitoring
 
@@ -80,7 +76,6 @@ The following situations require review and possible escalation:
 
 A whitelist of approved recurring transactions (e.g., payroll, rent) may suppress alerts if all approved parameters match and the whitelist is still valid. Each whitelist entry has an expiry date and is subject to periodic review.
 
----
 
 ## 5. Alert Handling
 
@@ -90,7 +85,6 @@ A whitelist of approved recurring transactions (e.g., payroll, rent) may suppres
 - All alerts, including those suppressed by a whitelist, are logged with trigger details and reviewer identity.
 - Suppressed alerts must record the whitelist entry used and its expiry date.
 
----
 
 ## 6. Escalation and Reporting
 
@@ -99,18 +93,15 @@ When suspicion remains after review:
 2. A Suspicious Transaction Report (STR) is filed with TRACFIN within 24 working hours.
 3. Additional measures may include account restrictions, freezes, or Enhanced Due Diligence.
 
----
 
 ## 7. Record Keeping
 
 - All KYC data, transaction records, and alert handling logs are retained for 5 years after the end of the business relationship.
 - Records must be easily retrievable for audits by regulators.
 
----
 
 ## 8. Governance and Training
 
 - Annual mandatory AML/LCB-FT training for relevant staff.
 - Quarterly compliance committee review of monitoring results, emerging risks, and rule effectiveness.
 
----
