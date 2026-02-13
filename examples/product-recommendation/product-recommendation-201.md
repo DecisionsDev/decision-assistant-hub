@@ -1,10 +1,8 @@
 # Product Recommendation Policy — Decision Automation 201
 
 ## 1. Purpose
-This policy defines how products are recommended to customers using clear business rules.  
+This policy defines how products are recommended to customers.  
 The objective is to ensure that every recommendation is appropriate, compliant, and aligned with current business campaigns, while remaining fully explainable.
-
-This policy is intentionally rule-based. Recommendations are determined by explicit conditions and not by predictive models, machine learning, or probabilistic scoring.
 
 ## 2. Policy Overview
 Products may be recommended only when they meet all eligibility and operational requirements.  
