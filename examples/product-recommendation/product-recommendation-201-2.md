@@ -1,4 +1,4 @@
- Product Recommendation Policy — Decision Automation 201
+# Product Recommendation Policy — Decision Automation 201
 
 ## 1. Purpose
 This policy describes how products are recommended to customers using explicit business rules.  
