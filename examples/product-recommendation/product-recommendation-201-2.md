@@ -159,5 +159,4 @@ All policy changes must be versioned to ensure traceability and auditability.
 ---
 
 ## 11. Version
-Policy Version: 1.0  
-Decision Automation Level: 201 — Rule-Based Only
+Policy Version: 1.0
