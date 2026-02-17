@@ -109,27 +109,6 @@ A product is recommended with **Normal Priority** when:
 
 ---
 
-## 8. Example Scenario
-
-### Customer Profile
-| Attribute | Value |
-|---|---|
-| customerSegment | Student |
-| customerAge | 20 |
-| accountStatus | Active |
-| verificationStatus | Verified |
-| customerCountry | NLD |
-| activeCampaign | BackToSchool |
-
-### Expected Outcome
-- P-100 → Recommended (High Priority) due to campaign and high stock.
-- P-200 → Recommended (Normal Priority).
-- P-300 → Recommended (High Priority) because eligible and high stock.
-- P-400 → Excluded due to low stock.
-- P-500 → Recommended (High Priority) because stock is high.
-
----
-
 ## 9. Decision Outputs
 Each evaluation must produce:
 
@@ -155,6 +134,27 @@ Business teams maintain:
 - Inventory thresholds
 
 All policy changes must be versioned to ensure traceability and auditability.
+
+---
+
+## 8. Example Scenario
+
+### Customer Profile
+| Attribute | Value |
+|---|---|
+| customerSegment | Student |
+| customerAge | 20 |
+| accountStatus | Active |
+| verificationStatus | Verified |
+| customerCountry | NLD |
+| activeCampaign | BackToSchool |
+
+### Expected Outcome
+- P-100 → Recommended (High Priority) due to campaign and high stock.
+- P-200 → Recommended (Normal Priority).
+- P-300 → Recommended (High Priority) because eligible and high stock.
+- P-400 → Excluded due to low stock.
+- P-500 → Recommended (High Priority) because stock is high.
 
 ---
 
