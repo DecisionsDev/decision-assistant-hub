@@ -1,7 +1,7 @@
 # Telecom Offer Recommendation Policy — Decision Automation 201
 
 ## 1. Purpose
-This policy defines how telecom plans and add-ons are recommended using deterministic business rules.
+This policy defines how telecom plans and add-ons are recommended.
 
 Objectives:
 - Ensure regulatory and commercial compliance
