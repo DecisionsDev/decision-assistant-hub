@@ -8,8 +8,6 @@ Objectives:
 - Maintain transparent and explainable recommendations
 - Prioritize eligible offers based on campaigns and operational constraints
 
-No machine learning, scoring models, or probabilistic ranking are used.
-
 ---
 
 ## 2. Reference Data
