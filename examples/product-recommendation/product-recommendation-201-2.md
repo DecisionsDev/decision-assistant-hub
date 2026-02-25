@@ -109,24 +109,7 @@ A product is recommended with **Normal Priority** when:
 
 ---
 
-## 9. Decision Outputs
-Each evaluation must produce:
-
-- RecommendedProducts[]
-- ExcludedProducts[]
-- PriorityLevel
-- ReasonCodes explaining which rules were applied
-
-Example reason codes:
-- COUNTRY_NOT_ALLOWED
-- VERIFICATION_REQUIRED
-- LOW_STOCK
-- CAMPAIGN_MATCH
-- ELIGIBLE_STANDARD
-
----
-
-## 10. Governance
+## 8. Governance
 Business teams maintain:
 - Country eligibility lists
 - Product risk classifications
@@ -137,7 +120,7 @@ All policy changes must be versioned to ensure traceability and auditability.
 
 ---
 
-## 8. Example Scenario
+## 9. Example Scenario
 
 ### Customer Profile
 | Attribute | Value |
@@ -159,4 +142,4 @@ All policy changes must be versioned to ensure traceability and auditability.
 ---
 
 ## 11. Version
-Policy Version: 1.0
+Policy Version: 1.1
