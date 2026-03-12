@@ -7,8 +7,6 @@ The final price is computed as:
 
 **Final Premium = Base Premium × Risk Multipliers − Discounts + Surcharges**
 
----
-
 ## 2. Base Premium Determination
 
 The **base premium** depends on the **type of insurance product** and the **coverage amount**.
@@ -23,8 +21,6 @@ The **base premium** depends on the **type of insurance product** and the **cove
 | Home | > €500,000 | €650 |
 | Health | Individual | €600 |
 | Health | Family | €1,100 |
-
----
 
 ## 3. Risk Multipliers
 
@@ -55,8 +51,6 @@ Risk multipliers reflect the **expected probability of claims**.
 | 2 | 1.2 |
 | ≥ 3 | 1.5 |
 
----
-
 ## 4. Coverage Adjustments
 
 ### 4.1 Deductible Adjustment
@@ -77,8 +71,6 @@ Risk multipliers reflect the **expected probability of claims**.
 | Flood Protection | €75 |
 | Identity Theft Protection | €50 |
 
----
-
 ## 5. Discounts
 
 | Condition | Discount |
@@ -90,8 +82,6 @@ Risk multipliers reflect the **expected probability of claims**.
 
 **Maximum cumulative discount:** 25%
 
----
-
 ## 6. Surcharges
 
 | Condition | Surcharge |
@@ -99,8 +89,6 @@ Risk multipliers reflect the **expected probability of claims**.
 | Fraud alert on previous policy | +30% |
 | Payment default in last 2 years | +15% |
 | Policy lapse > 60 days | +10% |
-
----
 
 ## 7. Final Premium Calculation
 
