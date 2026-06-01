@@ -1,0 +1,39 @@
+Automotive ISO 26262:
+
+Automotive Compliance Policy centered on the required data and evaluation of compliance with ISO 26262:
+
+Compliance
+To demonstrate compliance with ISO 26262, teams must produce and maintain structured, traceable documentation throughout the safety lifecycle. This includes:
+Hazard Analysis and Risk Assessment: Identification of potential hazards and assignment of ASIL (Automotive Safety Integrity Level).
+Safety Requirements Documentation: Functional and technical safety requirements derived from the risk analysis.
+System and Software Architecture: Design models showing how safety requirements are implemented.
+Verification and Validation Evidence: Test plans, results, coverage reports, and confirmation that safety goals are met.
+Safety Case: A structured argument supported by evidence that the system is acceptably safe.
+Change Management Records: Logs of modifications, impact assessments, and configuration control.
+Tool Qualification Data: Documentation showing that development tools meet ISO 26262 requirements when used in safety-related contexts.
+
+Evaluation 
+Compliance is evaluated through a combination of process audits, technical reviews, and traceability checks. Key evaluation activities include:
+Lifecycle Conformance Review: Ensuring all phases of the ISO 26262 safety lifecycle are followed, from concept to production.
+Traceability Analysis: Verifying that each safety requirement is linked to a hazard and validated by test results.
+ASIL Coverage Assessment: Confirming that safety mechanisms and testing are appropriate for the assigned ASIL levels.
+Safety Case Review: Assessing the completeness and credibility of the safety case.
+Tool Qualification Review: Ensuring tools used in development are properly classified and documented.
+Audit and Gap Analysis: Identifying missing data, process deviations, or risks to compliance.
+
+
+To demonstrate compliance with ISO 26262, teams must produce and maintain structured, traceable documentation throughout the safety lifecycle. This includes:
+Hazard Analysis and Risk Assessment: Identification of potential hazards and assignment of ASIL (Automotive Safety Integrity Level).
+Safety Requirements Documentation: Functional and technical safety requirements derived from the risk analysis.
+System and Software Architecture: Design models showing how safety requirements are implemented.
+Verification and Validation Evidence: Test plans, results, coverage reports, and confirmation that safety goals are met.
+Safety Case: A structured argument supported by evidence that the system is acceptably safe.
+Change Management Records: Logs of modifications, impact assessments, and configuration control.
+Tool Qualification Data: Documentation showing that development tools meet ISO 26262 requirements when used in safety-related contexts.
+Compliance is evaluated through a combination of process audits, technical reviews, and traceability checks. Key evaluation activities include:
+Lifecycle Conformance Review: Ensuring all phases of the ISO 26262 safety lifecycle are followed, from concept to production.
+Traceability Analysis: Verifying that each safety requirement is linked to a hazard and validated by test results.
+ASIL Coverage Assessment: Confirming that safety mechanisms and testing are appropriate for the assigned ASIL levels.
+Safety Case Review: Assessing the completeness and credibility of the safety case.
+Tool Qualification Review: Ensuring tools used in development are properly classified and documented.
+Audit and Gap Analysis: Identifying missing data, process deviations, or risks to compliance.
